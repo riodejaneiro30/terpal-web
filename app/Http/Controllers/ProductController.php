@@ -14,8 +14,6 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        echo "hello";
-
         $request->validate([
             'product_name' => 'required|string|max:255',
             'product_category_id' => 'required|exists:product_categories,product_category_id',

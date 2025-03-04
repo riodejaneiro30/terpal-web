@@ -4,20 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
-class ProductCategory extends Model
+class Menu extends Model
 {
     use HasFactory;
 
-    protected $table = 'product_categories';
-    protected $primaryKey = 'product_category_id'; // Set primary key
+    protected $table = 'menus';
+    protected $primaryKey = 'menu_id';
     public $incrementing = false; // Disable auto-increment
     protected $keyType = 'string'; // UUID is a string
     public $timestamps = false;
 
     protected $fillable = [
-        'product_category_id', 'product_category_name', 'created_by', 'created_date',
-        'last_updated_by', 'last_updated_date'
+        'menu_id',
+        'menu_name',
+        'menu_description',
+        'created_by',
+        'created_date',
+        'last_updated_by',
+        'last_updated_date'
     ];
 }

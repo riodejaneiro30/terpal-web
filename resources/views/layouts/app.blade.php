@@ -19,7 +19,8 @@
             <!-- Logo -->
             <div class="flex items-center">
                 <!-- Logo Text -->
-                <a href="#" class="text-white text-xl">Terpal</a>
+                <img src="{{ asset('images/carpet.png') }}" alt="Carpet" class="w-8 h-8 mr-2">
+                <a href="{{ route('productcategory.index') }}" class="text-white text-xl">Terpal</a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -31,15 +32,15 @@
 
             <!-- Desktop Menu -->
             <div class="hidden lg:flex space-x-4">
-                <a href="#" class="text-white hover:text-gray-200">Daftar</a>
-                <a href="#" class="text-white hover:text-gray-200">Login</a>
+                <a href="{{ route('register') }}" class="text-white hover:text-gray-200">Daftar</a>
+                <a href="{{ route('login') }}" class="text-white hover:text-gray-200">Login</a>
             </div>
         </div>
 
         <!-- Mobile Menu -->
         <div class="lg:hidden mt-2 hidden">
-            <a href="#" class="block text-white py-2 hover:bg-[#6DA8B8]">Daftar</a>
-            <a href="#" class="block text-white py-2 hover:bg-[#6DA8B8]">Login</a>
+            <a href="{{ route('register') }}" class="block text-white py-2 hover:bg-[#6DA8B8]">Daftar</a>
+            <a href="{{ route('login') }}" class="block text-white py-2 hover:bg-[#6DA8B8]">Login</a>
         </div>
     </nav>
 

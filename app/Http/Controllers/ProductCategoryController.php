@@ -35,7 +35,7 @@ class ProductCategoryController extends Controller
             'created_date' => now(),
         ]);
 
-        return redirect()->route('productcategory.index')->with('success', 'Category created successfully.');
+        return redirect()->route('productcategory.index')->with('success', 'Product category created successfully.');
     }
 
     // 🟢 Show form to edit category
@@ -57,13 +57,13 @@ class ProductCategoryController extends Controller
             'last_updated_date' => now(),
         ]);
         
-        return redirect()->route('productcategory.index')->with('success', 'Category updated successfully.');
+        return redirect()->route('productcategory.index')->with('success', 'Product category updated successfully.');
     }
 
     // 🟢 Delete category
     public function destroy(ProductCategory $category)
     {
         $category->delete();
-        return redirect()->route('productcategory.index')->with('success', 'Category deleted successfully.');
+        return redirect()->route('productcategory.index')->with('success', 'Product category deleted successfully.');
     }
 }

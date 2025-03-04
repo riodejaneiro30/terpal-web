@@ -41,6 +41,22 @@
             </div>
         </nav>
 
+        <div class="min-h-screen flex items-center justify-center bg-gray-100">
+            <div class="flex w-full">
+                <!-- Left Column -->
+                <div class="flex-1 bg-blue-200 p-4">
+                <h2 class="text-xl font-bold">Left Column</h2>
+                <p>This is the left column content.</p>
+                </div>
+
+                <!-- Right Column -->
+                <div class="flex-1 bg-green-200 p-4">
+                <h2 class="text-xl font-bold">Right Column</h2>
+                <p>This is the right column content.</p>
+                </div>
+            </div>
+            </div>
+
         <!-- Content -->
         <div class="container mx-auto p-4">
             <p class="mt-4">PT. Chaste Gemilang Mandiri merupakan perusahaan yang bergerak di bidang penjualan terpal yang dibutuhkan oleh masyarakat umum ataupun perusahaan-perusahaan bidang lain. Sesuai ijin dagangnya
