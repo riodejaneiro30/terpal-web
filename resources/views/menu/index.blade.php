@@ -8,6 +8,11 @@
             Add Menu
         </a>
     </div>
+
+    @if(session('success'))
+        <div class="mb-4">{{ session('success') }}</div>
+    @endif
+
     <div class="bg-white shadow-md rounded-lg overflow-hidden">
         <table class="min-w-full leading-normal">
             <thead>
@@ -30,7 +35,7 @@
                 @foreach ($menus as $index => $menu)
                     <tr>
                         <td class="px-5 py-5 text-center bg-white text-sm">
-                            {{ $index + 1 + ($menus->currentPage() - 1) * $menus->perPage() }}
+                        {{ $index + 1 + ($menus->currentPage() - 1) * $menus->perPage() }}
                         </td>
                         <td class="px-5 py-5 bg-white text-sm">
                             {{ $menu->menu_name }}
@@ -43,7 +48,7 @@
                             <form action="{{ route('menu.destroy', $menu->menu_id) }}" method="POST" class="inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('Are you sure you want to delete this menu?')">Delete</button>
+                                <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
                             </form>
                         </td>
                     </tr>
