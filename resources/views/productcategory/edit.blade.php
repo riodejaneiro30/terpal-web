@@ -11,7 +11,7 @@
                 @csrf
                 @method('PUT')
                 <div class="mb-4">
-                    <label for="product_category_name" class="block text-sm font-medium text-gray-700">Role Name</label>
+                    <label for="product_category_name" class="block text-sm font-medium text-gray-700">Product Category Name</label>
                     <input type="text" name="product_category_name" id="product_category_name" value="{{ $category->product_category_name }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div class="flex justify-end">
