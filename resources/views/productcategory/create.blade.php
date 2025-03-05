@@ -1,13 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1>Create Product Category</h1>
-    <form action="{{ route('productcategory.store') }}" method="POST">
-        @csrf
-        <label>Category Name</label>
-        <input type="text" name="product_category_name" required class="form-control">
-        <button type="submit" class="btn btn-success mt-3">Create</button>
-    </form>
+<div class="min-h-screen flex items-center justify-center">
+    <div class="flex w-full">
+        <div class="flex-1 py-8 px-4">
+        </div>
+        <div class="flex-1 py-8 px-8">
+            <h1 class="text-2xl font-bold mb-4">Create Product Category</h1>
+            <form action="{{ route('productcategory.store') }}" method="POST" class="bg-white shadow-md rounded-lg p-6">
+                @csrf
+                <div class="mb-4">
+                    <label for="product_category_name" class="block text-sm font-medium text-gray-700">Product Category Name</label>
+                    <input type="text" name="product_category_name" id="product_category_name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="w-32 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">Create</button>
+                </div>
+            </form>
+        </div>
+        <div class="flex-1 py-8 px-4">
+        </div>
+    </div>
 </div>
 @endsection

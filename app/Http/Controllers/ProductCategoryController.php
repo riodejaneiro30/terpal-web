@@ -8,10 +8,10 @@ use Illuminate\Support\Str;
 
 class ProductCategoryController extends Controller
 {
-    // 🟢 Fetch all categories
+    // 🟢 Fetch all product categories
     public function index()
     {
-        $categories = ProductCategory::all();
+        $categories = ProductCategory::orderBy('created_date', 'desc')->paginate(10); // Paginate with 10 items per page
         return view('productcategory.index', compact('categories'));
     }
 

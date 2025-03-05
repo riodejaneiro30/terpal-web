@@ -16,10 +16,6 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// Route::get('/', function () {
-//     return view('landing');
-// });
-
 Route::get('/product-category', [ProductCategoryController::class, 'index'])->name('productcategory.index'); // Fetch product categories
 Route::get('/product-category/create', [ProductCategoryController::class, 'create'])->name('productcategory.create'); // Show create form
 Route::post('/product-category', [ProductCategoryController::class, 'store'])->name('productcategory.store'); // Store new product category

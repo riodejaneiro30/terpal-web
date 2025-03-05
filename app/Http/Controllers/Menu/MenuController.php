@@ -11,7 +11,7 @@ class MenuController extends Controller
 {
     public function index()
     {
-        $menus = Menu::paginate(10); // Paginate with 10 items per page
+        $menus = Menu::orderBy('created_date', 'desc')->paginate(10); // Paginate with 10 items per page
         return view('menu.index', compact('menus'));
     }
 
@@ -50,7 +50,6 @@ class MenuController extends Controller
         $request->validate([
             'menu_name' => 'required|string|max:255',
             'menu_description' => 'required|string',
-            'last_updated_by' => 'required|string',
         ]);
 
         $menu->update([
