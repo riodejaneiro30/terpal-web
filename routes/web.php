@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\ProductCategoryController;
+use App\Http\Controllers\Menu\RoleController;
 use Illuminate\Support\Facades\Route;
 
 // Registration Routes
@@ -19,7 +20,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 //     return view('landing');
 // });
 
-Route::get('/', [ProductCategoryController::class, 'index'])->name('productcategory.index'); // Fetch product categories
+Route::get('/product-category', [ProductCategoryController::class, 'index'])->name('productcategory.index'); // Fetch product categories
 Route::get('/product-category/create', [ProductCategoryController::class, 'create'])->name('productcategory.create'); // Show create form
 Route::post('/product-category', [ProductCategoryController::class, 'store'])->name('productcategory.store'); // Store new product category
 Route::get('/product-category/{category}/edit', [ProductCategoryController::class, 'edit'])->name('productcategory.edit'); // Show edit product category
@@ -32,3 +33,10 @@ Route::post('/menu', [MenuController::class, 'store'])->name('menu.store'); // S
 Route::get('/menu/{menu}/edit', [MenuController::class, 'edit'])->name('menu.edit'); // Show edit form
 Route::put('/menu/{menu}', [MenuController::class, 'update'])->name('menu.update'); // Update menu
 Route::delete('/menu/{menu}', [MenuController::class, 'destroy'])->name('menu.destroy'); // Delete menu
+
+Route::get('/role', [RoleController::class, 'index'])->name('role.index');
+Route::get('/role/create', [RoleController::class, 'create'])->name('role.create'); // Show create form
+Route::post('/role', [RoleController::class, 'store'])->name('role.store'); // Store new role
+Route::get('/role/{role}/edit', [RoleController::class, 'edit'])->name('role.edit'); // Show edit form
+Route::put('/role/{role}', [RoleController::class, 'update'])->name('role.update'); // Update menu
+Route::delete('/role/{role}', [RoleController::class, 'destroy'])->name('role.destroy'); // Delete menu
