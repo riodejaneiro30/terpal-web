@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Menu\MenuController;
+use App\Http\Controllers\Menu\MenuRoleController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\Menu\RoleController;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +37,8 @@ Route::post('/role', [RoleController::class, 'store'])->name('role.store'); // S
 Route::get('/role/{role}/edit', [RoleController::class, 'edit'])->name('role.edit'); // Show edit form
 Route::put('/role/{role}', [RoleController::class, 'update'])->name('role.update'); // Update menu
 Route::delete('/role/{role}', [RoleController::class, 'destroy'])->name('role.destroy'); // Delete menu
+
+Route::get('/menu-role', [MenuRoleController::class, 'index'])->name('menurole.index');
+Route::get('/menu-role/{role}/edit', [MenuRoleController::class, 'edit'])->name('menurole.edit');
+Route::post('/menu-role/{role_id}', [MenuRoleController::class, 'store'])->name('menurole.store');
+Route::delete('/menu-role/{role_id}/{menu_id}', [MenuRoleController::class, 'destroy'])->name('menurole.destroy');

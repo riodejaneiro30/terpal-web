@@ -11,8 +11,8 @@ class Role extends Model
 
     protected $table = 'roles';
     protected $primaryKey = 'role_id';
-    public $incrementing = false; // Disable auto-increment
-    protected $keyType = 'string'; // UUID is a string
+    public $incrementing = false;
+    protected $keyType = 'string';
     public $timestamps = false;
 
     protected $fillable = [
@@ -24,4 +24,10 @@ class Role extends Model
         'last_updated_by',
         'last_updated_date'
     ];
+
+    // Define the many-to-many relationship with Menu
+    public function menus()
+    {
+        return $this->belongsToMany(Menu::class, 'menu_roles', 'role_id', 'menu_id');
+    }
 }
