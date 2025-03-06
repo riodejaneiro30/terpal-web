@@ -8,6 +8,11 @@ use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\Menu\RoleController;
 use Illuminate\Support\Facades\Route;
 
+//Landing Page
+Route::get('/', function () {
+    return view('landing');
+});
+
 // Registration Routes
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
