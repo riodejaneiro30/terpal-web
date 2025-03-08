@@ -33,39 +33,85 @@
 
             <!-- Desktop Menu -->
             <div class="hidden lg:flex space-x-4">
-                <div x-data="{ isOpen: false }" class="relative">
-                    <button @click="isOpen = !isOpen" class="text-white hover:text-gray-200 focus:outline-none">
-                        Product Management
-                        <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <!-- Dropdown Menu -->
-                    <div x-show="isOpen" @click.away="isOpen = false" class="absolute mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
-                        <a href="{{ route('productcategory.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Kategori Produk</a>
+                @auth
+                    <!-- Product Management Dropdown -->
+                    <div x-data="{ isOpen: false }" class="relative">
+                        <button @click="isOpen = !isOpen" class="text-white hover:text-gray-200 focus:outline-none">
+                            Product Management
+                            <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <div x-show="isOpen" @click.away="isOpen = false" class="absolute mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
+                            <a href="{{ route('productcategory.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Kategori Produk</a>
+                        </div>
                     </div>
-                </div>
-                <a href="{{ route('register') }}" class="text-white hover:text-gray-200">Daftar</a>
-                <a href="{{ route('login') }}" class="text-white hover:text-gray-200">Login</a>
+
+                    <!-- User Dropdown -->
+                    <div x-data="{ isUserDropdownOpen: false }" class="relative">
+                        <button @click="isUserDropdownOpen = !isUserDropdownOpen" class="text-white hover:text-gray-200 focus:outline-none">
+                            <img src="{{ asset('images/user.png') }}" alt="User" class="w-4 h-4 inline ml-1">
+                            {{ Auth::user()->name }}
+                            <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <div x-show="isUserDropdownOpen" @click.away="isUserDropdownOpen = false" class="absolute mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="block w-full px-4 py-2 text-gray-800 hover:bg-gray-100 text-left">Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                @else
+                    <!-- Show Register and Login if not authenticated -->
+                    <a href="{{ route('register') }}" class="text-white hover:text-gray-200">Daftar</a>
+                    <a href="{{ route('login') }}" class="text-white hover:text-gray-200">Login</a>
+                @endauth
             </div>
         </div>
 
         <!-- Mobile Menu -->
         <div class="lg:hidden mt-2 hidden">
-            <div x-data="{ isMobileDropdownOpen: false }" class="relative">
-                <button @click="isMobileDropdownOpen = !isMobileDropdownOpen" class="block w-full text-white py-2 hover:bg-[#6DA8B8] text-left">
-                    Product Management
-                    <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <!-- Dropdown Menu for Mobile -->
-                <div x-show="isMobileDropdownOpen">
-                    <a href="{{ route('productcategory.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Product Category</a>
+            @auth
+                <!-- Product Management Dropdown for Mobile -->
+                <div x-data="{ isMobileDropdownOpen: false }" class="relative">
+                    <button @click="isMobileDropdownOpen = !isMobileDropdownOpen" class="block w-full text-white py-2 hover:bg-[#6DA8B8] text-left">
+                        Product Management
+                        <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <!-- Dropdown Menu for Mobile -->
+                    <div x-show="isMobileDropdownOpen">
+                        <a href="{{ route('productcategory.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Product Category</a>
+                    </div>
                 </div>
-            </div>
-            <a href="{{ route('register') }}" class="block text-white py-2 hover:bg-[#6DA8B8]">Daftar</a>
-            <a href="{{ route('login') }}" class="block text-white py-2 hover:bg-[#6DA8B8]">Login</a>
+
+                <!-- User Dropdown for Mobile -->
+                <div x-data="{ isMobileUserDropdownOpen: false }" class="relative">
+                    <button @click="isMobileUserDropdownOpen = !isMobileUserDropdownOpen" class="block w-full text-white py-2 hover:bg-[#6DA8B8] text-left">
+                        <img src="{{ asset('images/user.png') }}" alt="User" class="w-4 h-4 inline ml-1">
+                        {{ Auth::user()->name }}
+                        <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <!-- Dropdown Menu for Mobile -->
+                    <div x-show="isMobileUserDropdownOpen">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="block w-full text-white py-2 hover:bg-[#6DA8B8] px-4 text-left">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            @else
+                <!-- Show Register and Login if not authenticated -->
+                <a href="{{ route('register') }}" class="block text-white py-2 hover:bg-[#6DA8B8]">Daftar</a>
+                <a href="{{ route('login') }}" class="block text-white py-2 hover:bg-[#6DA8B8]">Login</a>
+            @endauth
         </div>
     </nav>
 
