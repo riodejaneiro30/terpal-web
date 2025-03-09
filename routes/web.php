@@ -7,6 +7,7 @@ use App\Http\Controllers\Menu\MenuRoleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\Menu\RoleController;
+use App\Http\Controllers\UserProfileController;
 use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +56,9 @@ Route::middleware([AuthMiddleware::class])->group(function () {
     Route::get('/dashboard-admin', function () {
         return view('dashboard.admin');
     });
+
+    Route::get('/user-profile/{user}/edit', [UserProfileController::class, 'edit'])->name('userprofile.edit');
+    Route::put('/user-profile/{user}', [UserProfileController::class, 'update'])->name('userprofile.update');
 });
 
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');

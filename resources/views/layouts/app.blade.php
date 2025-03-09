@@ -34,16 +34,34 @@
             <!-- Desktop Menu -->
             <div class="hidden lg:flex space-x-4">
                 @auth
-                    <!-- Product Management Dropdown -->
+                    <!-- User Management Dropdown -->
                     <div x-data="{ isOpen: false }" class="relative">
                         <button @click="isOpen = !isOpen" class="text-white hover:text-gray-200 focus:outline-none">
-                            Product Management
+                            Pengguna
                             <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
                         <!-- Dropdown Menu -->
                         <div x-show="isOpen" @click.away="isOpen = false" class="absolute mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
+                            <a href="{{ route('menu.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Menu</a>
+                            <a href="{{ route('role.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Role</a>
+                            <a href="{{ route('menurole.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Menu Role</a>
+                            <a href="" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">User</a>
+                        </div>
+                    </div>
+
+                    <!-- Product Management Dropdown -->
+                    <div x-data="{ isOpen: false }" class="relative">
+                        <button @click="isOpen = !isOpen" class="text-white hover:text-gray-200 focus:outline-none">
+                            Produk
+                            <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <div x-show="isOpen" @click.away="isOpen = false" class="absolute mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
+                            <a href="" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Produk</a>
                             <a href="{{ route('productcategory.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Kategori Produk</a>
                         </div>
                     </div>
@@ -59,6 +77,7 @@
                         </button>
                         <!-- Dropdown Menu -->
                         <div x-show="isUserDropdownOpen" @click.away="isUserDropdownOpen = false" class="absolute mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
+                            <a href="{{ route('userprofile.edit', ['user' => Auth::id()]) }}" class="block w-full px-4 py-2 text-gray-800 hover:bg-gray-100 text-left">Profil User</a>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit" class="block w-full px-4 py-2 text-gray-800 hover:bg-gray-100 text-left">Logout</button>
@@ -76,17 +95,35 @@
         <!-- Mobile Menu -->
         <div class="lg:hidden mt-2 hidden">
             @auth
-                <!-- Product Management Dropdown for Mobile -->
+                <!-- User Management Dropdown for Mobile -->
                 <div x-data="{ isMobileDropdownOpen: false }" class="relative">
                     <button @click="isMobileDropdownOpen = !isMobileDropdownOpen" class="block w-full text-white py-2 hover:bg-[#6DA8B8] text-left">
-                        Product Management
+                        Pengguna
                         <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <!-- Dropdown Menu for Mobile -->
                     <div x-show="isMobileDropdownOpen">
-                        <a href="{{ route('productcategory.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Product Category</a>
+                        <a href="{{ route('menu.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Menu</a>
+                        <a href="{{ route('role.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Role</a>
+                        <a href="{{ route('menurole.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Menu Role</a>
+                        <a href="" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">User</a>
+                    </div>
+                </div>
+
+                <!-- Product Management Dropdown for Mobile -->
+                <div x-data="{ isMobileDropdownOpen: false }" class="relative">
+                    <button @click="isMobileDropdownOpen = !isMobileDropdownOpen" class="block w-full text-white py-2 hover:bg-[#6DA8B8] text-left">
+                        Produk
+                        <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <!-- Dropdown Menu for Mobile -->
+                    <div x-show="isMobileDropdownOpen">
+                        <a href="" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Produk</a>
+                        <a href="{{ route('productcategory.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Kategori Produk</a>
                     </div>
                 </div>
 
@@ -101,6 +138,7 @@
                     </button>
                     <!-- Dropdown Menu for Mobile -->
                     <div x-show="isMobileUserDropdownOpen">
+                        <a href="{{ route('userprofile.edit', ['user' => Auth::id()]) }}" class="block w-full text-white py-2 hover:bg-[#6DA8B8] px-4 text-left">Profil User</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="block w-full text-white py-2 hover:bg-[#6DA8B8] px-4 text-left">Logout</button>
