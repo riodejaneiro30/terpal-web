@@ -31,11 +31,9 @@ class MenuController extends Controller
             'menu_id' => (string) Str::uuid(), // Generate UUID
             'menu_name' => $request->menu_name,
             'menu_description' => $request->menu_description,
-            'created_by' => 'admin',
+            'created_by' => auth()->user()->name,
             'created_date' => now(),
         ]);
-
-        var_dump($request->all());
 
         return redirect()->route('menu.index')->with('success', 'Menu created successfully.');
     }
@@ -55,7 +53,7 @@ class MenuController extends Controller
         $menu->update([
             'menu_name' => $request->menu_name,
             'menu_description' => $request->menu_description,
-            'last_updated_by' => 'admin',
+            'last_updated_by' => auth()->user()->name,
             'last_updated_date' => now(),
         ]);
 

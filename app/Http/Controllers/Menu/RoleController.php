@@ -31,11 +31,9 @@ class RoleController extends Controller
             'role_id' => (string) Str::uuid(), // Generate UUID
             'role_name' => $request->role_name,
             'role_description' => $request->role_description,
-            'created_by' => 'admin',
+            'created_by' => auth()->user()->name,
             'created_date' => now(),
         ]);
-
-        var_dump($request->all());
 
         return redirect()->route('role.index')->with('success', 'Role created successfully.');
     }
@@ -55,7 +53,7 @@ class RoleController extends Controller
         $role->update([
             'role_name' => $request->role_name,
             'role_description' => $request->role_description,
-            'last_updated_by' => 'admin',
+            'last_updated_by' => auth()->user()->name,
             'last_updated_date' => now(),
         ]);
 

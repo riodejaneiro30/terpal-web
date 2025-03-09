@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\Menu\RoleController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\Parameter\GeneralParameterController;
 use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -59,6 +60,13 @@ Route::middleware([AuthMiddleware::class])->group(function () {
 
     Route::get('/user-profile/{user}/edit', [UserProfileController::class, 'edit'])->name('userprofile.edit');
     Route::put('/user-profile/{user}', [UserProfileController::class, 'update'])->name('userprofile.update');
+
+    Route::get('/general-parameter', [GeneralParameterController::class, 'index'])->name('generalparameter.index');
+    Route::get('/general-parameter/create', [GeneralParameterController::class, 'create'])->name('generalparameter.create');
+    Route::post('/general-parameter', [GeneralParameterController::class, 'store'])->name('generalparameter.store');
+    Route::get('/general-parameter/{generalparameter}/edit', [GeneralParameterController::class, 'edit'])->name('generalparameter.edit');
+    Route::put('/general-parameter/{generalparameter}', [GeneralParameterController::class, 'update'])->name('generalparameter.update');
+    Route::delete('/general-parameter/{generalparameter}', [GeneralParameterController::class, 'destroy'])->name('generalparameter.destroy');
 });
 
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');

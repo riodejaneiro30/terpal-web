@@ -31,7 +31,7 @@ class ProductCategoryController extends Controller
         ProductCategory::create([
             'product_category_id' => Str::uuid()->toString(),
             'product_category_name' => $request->product_category_name,
-            'created_by' => 'admin', // Adjust as needed
+            'created_by' => auth()->user()->name,
             'created_date' => now(),
         ]);
 
@@ -53,7 +53,7 @@ class ProductCategoryController extends Controller
         
         $category->update([
             'product_category_name' => $request->product_category_name,
-            'last_updated_by' => 'admin',
+            'last_updated_by' => auth()->user()->name,
             'last_updated_date' => now(),
         ]);
         
