@@ -25,7 +25,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        $role = Role::whereRaw('LOWER(role_name) = LOWER(?)', ['admin staff'])->first();
+        $role = Role::whereRaw('LOWER(role_name) = LOWER(?)', ['buyer'])->first();
 
         $user = User::create([
             'name' => $request->name,
