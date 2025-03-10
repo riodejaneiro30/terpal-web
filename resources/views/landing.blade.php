@@ -7,13 +7,32 @@
             <img src="{{ asset('images/companyLogo.png') }}" alt="Company Logo" class="w-64 h-64">
         </div>
         <div class="w-64 flex-auto">
-            <p class="mt-4">PT. Chaste Gemilang Mandiri merupakan perusahaan yang bergerak di bidang penjualan terpal yang dibutuhkan oleh masyarakat umum ataupun perusahaan-perusahaan bidang lain. Sesuai ijin dagangnya
-            perusahaan ini berlokasi pada kota Surabaya tepatnya pada jalan Mulyosari Prima Utara VI No. 8, 60112. Telah berdiri selama kurang lebih 24 tahun yang mana telah berganti nama sekali.</p>
+            <p class="mt-4">{{ $parameter->general_parameter_value }}</p>
         </div>
     </div>
 
     <div class="mx-auto px-16">
         <h1 class="text-2xl font-bold mb-4">Produk yang Tersedia</h1>
+    </div>
+
+    <div class="flex flex-wrap mx-auto px-16">
+        <div class="grid grid-cols-2 gap-4">
+            @foreach ($products as $product)
+                <div class="bg-white rounded-lg shadow-md p-4">
+                @if ($product->product_image)
+                <img src="data:image/png;base64,{{ $product->product_image }}"
+                        alt="Product"
+                        class="py-2 w-48 h-48 object-cover rounded-md">
+                @else
+                <img src="{{ asset('images/empty-pic.png') }}"
+                        alt="Product"
+                        class="py-2 w-48 h-48 object-cover rounded-md">
+                @endif
+                    <h2 class="text-xl font-semibold">{{ $product->product_name }}</h2>
+                    <p class="py-2 text-gray-600">Ukuran : {{ rtrim(rtrim(number_format($product->length, 2, '.', ''), '0'), '.') }} meter X {{ rtrim(rtrim(number_format($product->width, 2, '.', ''), '0'), '.') }} meter</p>
+                </div>
+            @endforeach
+        </div>
     </div>
 </div>
 @endsection

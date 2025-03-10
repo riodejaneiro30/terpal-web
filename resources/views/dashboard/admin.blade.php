@@ -11,9 +11,5 @@
             perusahaan ini berlokasi pada kota Surabaya tepatnya pada jalan Mulyosari Prima Utara VI No. 8, 60112. Telah berdiri selama kurang lebih 24 tahun yang mana telah berganti nama sekali.</p>
         </div>
     </div>
-
-    <div class="mx-auto px-16">
-        <h1 class="text-2xl font-bold mb-4">{{ Auth::user() }}</h1>
-    </div>
 </div>
 @endsection

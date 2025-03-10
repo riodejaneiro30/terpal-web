@@ -35,6 +35,7 @@
             <div class="hidden lg:flex space-x-4">
                 @auth
                     <!-- Parameter Dropdown -->
+                    @if(Auth::user()->profile->role->menus->contains('menu_name', 'PARAMETER_MANAGEMENT'))
                     <div x-data="{ isOpen: false }" class="relative">
                         <button @click="isOpen = !isOpen" class="text-white hover:text-gray-200 focus:outline-none">
                             Parameter
@@ -47,8 +48,10 @@
                             <a href="{{ route('generalparameter.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">General Parameter</a>
                         </div>
                     </div>
+                    @endif
 
                     <!-- User Management Dropdown -->
+                    @if(Auth::user()->profile->role->menus->contains('menu_name', 'USER_MANAGEMENT'))
                     <div x-data="{ isOpen: false }" class="relative">
                         <button @click="isOpen = !isOpen" class="text-white hover:text-gray-200 focus:outline-none">
                             Pengguna
@@ -64,8 +67,10 @@
                             <a href="" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">User</a>
                         </div>
                     </div>
+                    @endif
 
                     <!-- Product Management Dropdown -->
+                    @if(Auth::user()->profile->role->menus->contains('menu_name', 'PRODUCT_MANAGEMENT'))
                     <div x-data="{ isOpen: false }" class="relative">
                         <button @click="isOpen = !isOpen" class="text-white hover:text-gray-200 focus:outline-none">
                             Produk
@@ -79,6 +84,7 @@
                             <a href="{{ route('productcategory.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Kategori Produk</a>
                         </div>
                     </div>
+                    @endif
 
                     <!-- User Dropdown -->
                     <div x-data="{ isUserDropdownOpen: false }" class="relative">
@@ -109,7 +115,8 @@
         <!-- Mobile Menu -->
         <div class="lg:hidden mt-2 hidden">
             @auth
-                <!-- User Management Dropdown for Mobile -->
+                <!-- Parameter Management Dropdown for Mobile -->
+                @if(Auth::user()->profile->role->menus->contains('menu_name', 'USER_MANAGEMENT'))
                 <div x-data="{ isMobileDropdownOpen: false }" class="relative">
                     <button @click="isMobileDropdownOpen = !isMobileDropdownOpen" class="block w-full text-white py-2 hover:bg-[#6DA8B8] text-left">
                         Parameter
@@ -122,8 +129,10 @@
                         <a href="{{ route('generalparameter.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">General Parameter</a>
                     </div>
                 </div>
+                @endif
 
                 <!-- User Management Dropdown for Mobile -->
+                @if(Auth::user()->profile->role->menus->contains('menu_name', 'USER_MANAGEMENT'))
                 <div x-data="{ isMobileDropdownOpen: false }" class="relative">
                     <button @click="isMobileDropdownOpen = !isMobileDropdownOpen" class="block w-full text-white py-2 hover:bg-[#6DA8B8] text-left">
                         Pengguna
@@ -139,8 +148,10 @@
                         <a href="" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">User</a>
                     </div>
                 </div>
+                @endif
 
                 <!-- Product Management Dropdown for Mobile -->
+                @if(Auth::user()->profile->role->menus->contains('menu_name', 'PRODUCT_MANAGEMENT'))
                 <div x-data="{ isMobileDropdownOpen: false }" class="relative">
                     <button @click="isMobileDropdownOpen = !isMobileDropdownOpen" class="block w-full text-white py-2 hover:bg-[#6DA8B8] text-left">
                         Produk
@@ -154,6 +165,7 @@
                         <a href="{{ route('productcategory.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Kategori Produk</a>
                     </div>
                 </div>
+                @endif
 
                 <!-- User Dropdown for Mobile -->
                 <div x-data="{ isMobileUserDropdownOpen: false }" class="relative">

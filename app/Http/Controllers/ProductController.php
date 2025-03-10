@@ -30,6 +30,13 @@ class ProductController extends Controller
 
         $data = $request->all();
 
+        if ($request->hasFile('product_image')) {
+            $image = $request->file('product_image');
+            $imageData = base64_encode(file_get_contents($image));
+
+            $data['product_image'] = $imageData;
+        }
+
         //$data['created_by'] = auth()->user()->name; // Set the created_by field
         $data['created_by'] = 'admin';
         $data['created_date'] = now();
