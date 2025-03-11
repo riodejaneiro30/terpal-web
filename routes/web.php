@@ -7,6 +7,7 @@ use App\Http\Controllers\Menu\MenuRoleController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\ProductCategoryController;
+use App\Http\Controllers\Product\StockController;
 use App\Http\Controllers\Menu\RoleController;
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\Parameter\GeneralParameterController;
@@ -75,5 +76,7 @@ Route::middleware([AuthMiddleware::class])->group(function () {
     Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 });
 
+Route::get('/stock', [StockController::class, 'index'])->name('stock.index');
+Route::put('/stock/{productId}', [StockController::class, 'update'])->name('stock.update');
 
 
