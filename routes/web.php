@@ -9,6 +9,7 @@ use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\ProductCategoryController;
 use App\Http\Controllers\Product\StockController;
 use App\Http\Controllers\Menu\RoleController;
+use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\Parameter\GeneralParameterController;
 use App\Http\Middleware\AuthMiddleware;
@@ -74,9 +75,14 @@ Route::middleware([AuthMiddleware::class])->group(function () {
     Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
     Route::put('/product/{product}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+
+    Route::get('/stock', [StockController::class, 'index'])->name('stock.index');
+    Route::put('/stock/{productId}', [StockController::class, 'update'])->name('stock.update');
+
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('/user', [UserController::class, 'store'])->name('user.store');
+    Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
 });
-
-Route::get('/stock', [StockController::class, 'index'])->name('stock.index');
-Route::put('/stock/{productId}', [StockController::class, 'update'])->name('stock.update');
-
 

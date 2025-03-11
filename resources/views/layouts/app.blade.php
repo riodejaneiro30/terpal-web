@@ -64,7 +64,7 @@
                             <a href="{{ route('menu.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Menu</a>
                             <a href="{{ route('role.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Role</a>
                             <a href="{{ route('menurole.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Menu Role</a>
-                            <a href="" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">User</a>
+                            <a href="{{ route('user.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">User</a>
                         </div>
                     </div>
                     @endif
@@ -82,6 +82,7 @@
                         <div x-show="isOpen" @click.away="isOpen = false" class="absolute mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
                             <a href="{{ route('product.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Produk</a>
                             <a href="{{ route('productcategory.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Kategori Produk</a>
+                            <a href="{{ route('stock.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Stok</a>
                         </div>
                     </div>
                     @endif
@@ -145,7 +146,7 @@
                         <a href="{{ route('menu.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Menu</a>
                         <a href="{{ route('role.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Role</a>
                         <a href="{{ route('menurole.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Menu Role</a>
-                        <a href="" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">User</a>
+                        <a href="{{ route('user.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">User</a>
                     </div>
                 </div>
                 @endif
@@ -163,6 +164,7 @@
                     <div x-show="isMobileDropdownOpen">
                         <a href="{{ route('product.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Produk</a>
                         <a href="{{ route('productcategory.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Kategori Produk</a>
+                        <a href="{{ route('stock.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Stok</a>
                     </div>
                 </div>
                 @endif
