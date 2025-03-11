@@ -35,7 +35,7 @@ class MenuController extends Controller
             'created_date' => now(),
         ]);
 
-        return redirect()->route('menu.index')->with('success', 'Menu created successfully.');
+        return redirect()->route('menu.index')->with('success', 'Menu berhasil dibuat.');
     }
 
     public function edit(Menu $menu)
@@ -57,12 +57,12 @@ class MenuController extends Controller
             'last_updated_date' => now(),
         ]);
 
-        return redirect()->route('menu.index')->with('success', 'Menu updated successfully.');
+        return redirect()->route('menu.index')->with('success', 'Menu berhasil diupdate.');
     }
 
     public function destroy(Menu $menu)
     {
         $menu->delete();
-        return redirect()->route('menu.index')->with('success', 'Menu deleted successfully.');
+        return redirect()->route('menu.index')->with('success', 'Menu berhasil dihapus.');
     }
 }

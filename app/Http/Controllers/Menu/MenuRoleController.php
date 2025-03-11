@@ -43,7 +43,7 @@ class MenuRoleController extends Controller
             'menu_id' => $request->menu_id,
         ]);
 
-        return redirect()->back()->with('success', 'Menu assigned successfully.');
+        return redirect()->back()->with('success', 'Menu telah diberikan ke role.');
     }
 
     public function destroy($role_id, $menu_id)
@@ -53,6 +53,6 @@ class MenuRoleController extends Controller
             ->where('menu_id', $menu_id)
             ->delete();
 
-        return redirect()->back()->with('success', 'Menu role deleted successfully.');
+        return redirect()->back()->with('success', 'Menu role berhasil dihapus.');
     }
 }

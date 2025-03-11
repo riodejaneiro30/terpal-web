@@ -35,7 +35,7 @@ class RoleController extends Controller
             'created_date' => now(),
         ]);
 
-        return redirect()->route('role.index')->with('success', 'Role created successfully.');
+        return redirect()->route('role.index')->with('success', 'Role berhasil dibuat.');
     }
 
     public function edit(Role $role)
@@ -57,12 +57,12 @@ class RoleController extends Controller
             'last_updated_date' => now(),
         ]);
 
-        return redirect()->route('role.index')->with('success', 'Role updated successfully.');
+        return redirect()->route('role.index')->with('success', 'Role berhasil diupdate.');
     }
 
     public function destroy(Role $role)
     {
         $role->delete();
-        return redirect()->route('role.index')->with('success', 'Role deleted successfully.');
+        return redirect()->route('role.index')->with('success', 'Role berhasil dihapus.');
     }
 }

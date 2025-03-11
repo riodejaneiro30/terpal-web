@@ -39,6 +39,6 @@ class RegisterController extends Controller
             'role_id' => $role->role_id
         ]);
 
-        return redirect('/login')->with('success', 'Registration successful! Please login.');
+        return redirect('/login')->with('success', 'Registrasi berhasil');
     }
 }

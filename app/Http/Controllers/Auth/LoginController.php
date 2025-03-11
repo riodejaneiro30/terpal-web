@@ -23,7 +23,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/dashboard-admin')->with('success', 'Login successful!');
+            return redirect('/dashboard-admin')->with('success', 'Sukses login');
         }
 
         return back()->withErrors([
@@ -36,7 +36,7 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/')->with('success', 'Logged out successfully!');
+        return redirect('/')->with('success', 'Sukses logout');
     }
 }
 
