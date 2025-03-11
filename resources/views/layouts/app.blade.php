@@ -80,7 +80,7 @@
                         </button>
                         <!-- Dropdown Menu -->
                         <div x-show="isOpen" @click.away="isOpen = false" class="absolute mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
-                            <a href="" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Produk</a>
+                            <a href="{{ route('product.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Produk</a>
                             <a href="{{ route('productcategory.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Kategori Produk</a>
                         </div>
                     </div>
@@ -161,7 +161,7 @@
                     </button>
                     <!-- Dropdown Menu for Mobile -->
                     <div x-show="isMobileDropdownOpen">
-                        <a href="" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Produk</a>
+                        <a href="{{ route('product.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Produk</a>
                         <a href="{{ route('productcategory.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Kategori Produk</a>
                     </div>
                 </div>

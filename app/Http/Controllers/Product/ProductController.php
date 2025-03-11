@@ -1,14 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Product;
 
+use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
+    public function index()
+    {
+        $products = Product::orderBy('created_date', 'desc')->paginate(10); // Paginate with 10 items per page
+        return view('product.index', compact('products'));
+    }
+
     public function create()
     {
         $categories = ProductCategory::all();
@@ -38,10 +46,64 @@ class ProductController extends Controller
         }
 
         //$data['created_by'] = auth()->user()->name; // Set the created_by field
+        $data['product_id'] = (string) Str::uuid(); // Generate UUID
         $data['created_by'] = 'admin';
         $data['created_date'] = now();
         Product::create($data);
         
-        return redirect()->back()->with('success', 'Produk berhasil ditambahkan.');
+        return redirect()->route('product.index')->with('success', 'Produk berhasil ditambahkan.');
+    }
+
+    public function edit(Product $product)
+    {
+        $categories = ProductCategory::all();
+        return view('product.edit', compact('product', 'categories'));
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $request->validate([
+            'product_name' => 'required|string|max:255',
+            'product_category_id' => 'required|exists:product_categories,product_category_id',
+            'width' => 'required|numeric',
+            'length' => 'required|numeric',
+            'product_color' => 'required|string|max:255',
+            'stock_available' => 'required|integer',
+            'price' => 'required|numeric',
+            'product_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate the image
+        ]);
+
+        $imageData = null;
+
+        if ($request->hasFile('product_image')) {
+            $image = $request->file('product_image');
+            $imageData = base64_encode(file_get_contents($image));
+        }
+        else {
+            $imageData = $product->product_image;
+        }
+
+        $product->update([
+            'product_name' => $request->product_name,
+            'product_category_id' => $request->product_category_id,
+            'width' => $request->width,
+            'length' => $request->length,
+            'product_color' => $request->product_color,
+            'stock_available' => $request->stock_available,
+            'price' => $request->price,
+            'product_image' => $imageData,
+            'net_price' => $request->net_price,
+            'min_stock' => $request->min_stock,
+            'last_updated_by' => 'admin',
+            'last_updated_date' => now(),
+        ]);
+
+        return redirect()->route('product.index')->with('success', 'Produk berhasil diperbarui.');
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+        return redirect()->route('product.index')->with('success', 'Produk berhasil dihapus.');
     }
 }

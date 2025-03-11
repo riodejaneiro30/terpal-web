@@ -66,9 +66,14 @@ Route::middleware([AuthMiddleware::class])->group(function () {
     Route::get('/general-parameter/{generalparameter}/edit', [GeneralParameterController::class, 'edit'])->name('generalparameter.edit');
     Route::put('/general-parameter/{generalparameter}', [GeneralParameterController::class, 'update'])->name('generalparameter.update');
     Route::delete('/general-parameter/{generalparameter}', [GeneralParameterController::class, 'destroy'])->name('generalparameter.destroy');
+
+    Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+    Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
+    Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+    Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
+    Route::put('/product/{product}', [ProductController::class, 'update'])->name('product.update');
+    Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 });
 
-Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
-Route::post('/product', [ProductController::class, 'store'])->name('product.store'); // Store new product
 
 
