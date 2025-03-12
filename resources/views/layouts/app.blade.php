@@ -201,8 +201,28 @@
 
     <!-- Footer -->
     <footer class="bg-[#80C0CE] text-white p-6 mt-8">
-        <div class="container mx-auto text-center">
-            <p>&copy; Terpal 2025. Hak Cipta Dilindungi</p>
+        <div class="container mx-auto">
+            <div class="mb-4">
+                <h3 class="text-lg text-center mb-2">Hubungi kami</h3>
+                <ul>
+                    <!-- Email -->
+                    <li class="text-sm flex items-center justify-center">
+                        <img src="{{ asset('images/email.png') }}" alt="Email" class="w-4 h-4 mr-2"> <!-- Gambar email -->
+                        {{ $email->general_parameter_value }}
+                    </li>
+                    <!-- Telepon -->
+                    <li class="text-sm flex items-center justify-center mt-2">
+                        <img src="{{ asset('images/phone-call.png') }}" alt="Telepon" class="w-4 h-4 mr-2"> <!-- Gambar telepon -->
+                        {{ $phone->general_parameter_value }}
+                    </li>
+                    <!-- Alamat -->
+                    <li class="text-sm flex items-center justify-center mt-2">
+                        <img src="{{ asset('images/building.png') }}" alt="Alamat" class="w-4 h-4 mr-2"> <!-- Gambar alamat -->
+                        {{ $address->general_parameter_value }}
+                    </li>
+                </ul>
+            </div>
+            <p class="text-center">&copy; Terpal 2025. Hak Cipta Dilindungi</p>
         </div>
     </footer>
 
