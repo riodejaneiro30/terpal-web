@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+    <div id="stockTable" class="bg-white shadow-md rounded-lg overflow-hidden">
         <table class="min-w-full leading-normal">
             <thead>
                 <tr>
@@ -120,13 +120,12 @@
         document.getElementById('stock_available').value = currentStock;
         document.getElementById('editStockForm').action = `/stock/${productId}`;
         document.getElementById('editStockModal').classList.remove('hidden');
-
-        console.log(productId);
-        console.log(currentStock);
+        document.getElementById('stockTable').classList.add('hidden');
     }
 
     function closeEditModal() {
         document.getElementById('editStockModal').classList.add('hidden');
+        document.getElementById('stockTable').classList.remove('hidden');
     }
 </script>
 @endsection
