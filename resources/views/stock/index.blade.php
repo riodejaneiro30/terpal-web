@@ -12,8 +12,8 @@
         <div class="mb-4">{{ session('error') }}</div>
     @endif
 
-    <div id="editStockModal" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-60 overflow-y-auto h-full w-128 px-2">
-        <div class="relative top-40 mx-auto shadow-xl rounded-md bg-white max-w-md">
+    <div id="editStockModal" class="fixed hidden w-full h-100 inset-0 bg-gray-900 bg-opacity-60 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster" style="background: rgba(0,0,0,.7);">
+        <div class="relative mx-auto shadow-xl rounded-md bg-white max-w-md">
             <div class="flex justify-end p-2">
                 <button onclick="closeEditModal()" type="button"
                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
@@ -35,7 +35,6 @@
                         <input type="number" name="stock_available" id="stock_available" class="mt-1 block px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
                     </div>
                     <div class="flex justify-end">
-                        <button type="button" onclick="closeEditModal()" class="bg-gray-500 text-white px-4 py-2 rounded-md mr-2">Batal</button>
                         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Simpan</button>
                     </div>
                 </form>
@@ -120,12 +119,14 @@
         document.getElementById('stock_available').value = currentStock;
         document.getElementById('editStockForm').action = `/stock/${productId}`;
         document.getElementById('editStockModal').classList.remove('hidden');
-        document.getElementById('stockTable').classList.add('hidden');
+        document.getElementById('editStockModal').classList.remove('fadeOut');
+        document.getElementById('editStockModal').classList.add('fadeIn');
     }
 
     function closeEditModal() {
         document.getElementById('editStockModal').classList.add('hidden');
-        document.getElementById('stockTable').classList.remove('hidden');
+        document.getElementById('editStockModal').classList.remove('fadeIn');
+        document.getElementById('editStockModal').classList.add('fadeOut');
     }
 </script>
 @endsection
