@@ -15,6 +15,10 @@
             <input type="text" name="product_name" id="product_name" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
         </div>
         <div class="mb-4">
+            <label for="product_description" class="block text-gray-700 text-sm font-bold mb-2">Deskripsi Produk</label>
+            <input type="text" name="product_description" id="product_description" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+        <div class="mb-4">
             <label for="product_category_id" class="block text-gray-700 text-sm font-bold mb-2">Kategori Produk</label>
             <select name="product_category_id" id="product_category_id" class="shadow border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                 @foreach($categories as $category)

@@ -20,4 +20,9 @@ class ProductCategory extends Model
         'product_category_id', 'product_category_name', 'created_by', 'created_date',
         'last_updated_by', 'last_updated_date'
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'product_category_id', 'product_category_id');
+    }
 }

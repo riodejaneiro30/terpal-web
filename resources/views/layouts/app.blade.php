@@ -12,6 +12,7 @@
         }
     </style>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -21,7 +22,11 @@
             <div class="flex items-center">
                 <!-- Logo Text -->
                 <img src="{{ asset('images/carpet.png') }}" alt="Carpet" class="w-8 h-8 mr-2">
+                @auth
+                <a href="{{ route('dashboard.index') }}" class="text-white text-xl">Terpal</a>
+                @else
                 <a href="/" class="text-white text-xl">Terpal</a>
+                @endauth
             </div>
 
             <!-- Mobile Menu Button -->

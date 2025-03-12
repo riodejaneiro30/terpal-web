@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -62,17 +63,19 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        $request->validate([
-            'product_name' => 'required|string|max:255',
-            'product_category_id' => 'required|exists:product_categories,product_category_id',
-            'width' => 'required|numeric',
-            'length' => 'required|numeric',
-            'product_color' => 'required|string|max:255',
-            'stock_available' => 'required|integer',
-            'price' => 'required|numeric',
-            'product_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate the image
-        ]);
-
+        if (Auth::user()->profile && Auth::user()->profile->role && Auth::user()->profile->role->role_name == 'Owner') {
+            $request->validate([
+                'product_name' => 'required|string|max:255',
+                'product_category_id' => 'required|exists:product_categories,product_category_id',
+                'width' => 'required|numeric',
+                'length' => 'required|numeric',
+                'product_color' => 'required|string|max:255',
+                'stock_available' => 'required|integer',
+                'price' => 'required|numeric',
+                'product_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate the image
+            ]);
+        }
+        
         $imageData = null;
 
         if ($request->hasFile('product_image')) {
@@ -84,17 +87,18 @@ class ProductController extends Controller
         }
 
         $product->update([
-            'product_name' => $request->product_name,
-            'product_category_id' => $request->product_category_id,
-            'width' => $request->width,
-            'length' => $request->length,
-            'product_color' => $request->product_color,
-            'stock_available' => $request->stock_available,
-            'price' => $request->price,
-            'product_image' => $imageData,
-            'net_price' => $request->net_price,
-            'min_stock' => $request->min_stock,
-            'last_updated_by' => 'admin',
+            'product_name' => $request->product_name ? $request->product_name : $product->product_name,
+            'product_description' => $request->product_description ? $request->product_description : $product->product_description,
+            'product_category_id' => $request->product_category_id ? $request->product_category_id : $product->product_category_id,
+            'width' => $request->width ? $request->width : $product->width,
+            'length' => $request->length ? $request->length : $product->length,
+            'product_color' => $request->product_color ? $request->product_color : $product->product_color,
+            'stock_available' => $request->stock_available ? $request->stock_available : $product->stock_available,
+            'price' => $request->price ? $request->price : $product->price,
+            'product_image' => $imageData ? $imageData : $product->product_image,
+            'net_price' => $request->net_price ? $request->net_price : $product->net_price,
+            'min_stock' => $request->min_stock ? $request->min_stock : $product->min_stock,
+            'last_updated_by' => Auth::user()->name,
             'last_updated_date' => now(),
         ]);
 

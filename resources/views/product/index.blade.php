@@ -2,11 +2,13 @@
 
 @section('content')
 <div class="min-h-screen mx-auto px-24 py-8">
-    <h1 class="text-2xl font-bold mb-4">Produk</h1>
+    <h1 class="text-2xl font-bold mb-4">Daftar Produk</h1>
     <div class="mb-4">
+        @if(Auth::user()->profile && Auth::user()->profile->role && Auth::user()->profile->role->role_name === 'Owner')
         <a href="{{ route('product.create') }}" class="w-16 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
             Tambah Produk
         </a>
+        @endif
     </div>
 
     @if(session('success'))
@@ -30,14 +32,19 @@
                         Kategori
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
+                        Warna
+                    </th>
+                    <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Harga Jual
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Stok Tersedia
                     </th>
+                    @if(Auth::user()->profile && Auth::user()->profile->role && Auth::user()->profile->role->role_name === 'Owner')
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Harga Nett
                     </th>
+                    @endif
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Actions
                     </th>
@@ -67,21 +74,28 @@
                             {{ $product->category->product_category_name }}
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
+                            {{ $product->product_color }}
+                        </td>
+                        <td class="px-5 py-5 text-center bg-white text-sm">
                             Rp {{ number_format($product->price, 2, ',', '.') }}
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
                             {{ $product->stock_available }}
                         </td>
+                        @if(Auth::user()->profile && Auth::user()->profile->role && Auth::user()->profile->role->role_name === 'Owner')
                         <td class="px-5 py-5 text-center bg-white text-sm">
                             Rp {{ number_format($product->net_price, 2, ',', '.') }}
                         </td>
+                        @endif
                         <td class="px-5 py-5 text-center bg-white text-sm">
                             <a href="{{ route('product.edit', $product->product_id) }}" class="text-blue-600 hover:text-blue-900 mr-2">Edit</a>
-                            <form action="{{ route('product.destroy', $product->product_id) }}" method="POST" class="inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-red-600 hover:text-red-900">Hapus</button>
-                            </form>
+                            @if(Auth::user()->profile && Auth::user()->profile->role && Auth::user()->profile->role->role_name === 'Owner')
+                                <form action="{{ route('product.destroy', $product->product_id) }}" method="POST" class="inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-600 hover:text-red-900">Hapus</button>
+                                </form>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
