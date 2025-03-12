@@ -54,9 +54,9 @@ Route::middleware([AuthMiddleware::class])->group(function () {
     Route::post('/menu-role/{role_id}', [MenuRoleController::class, 'store'])->name('menurole.store');
     Route::delete('/menu-role/{role_id}/{menu_id}', [MenuRoleController::class, 'destroy'])->name('menurole.destroy');
 
-    //Dashboard Admin Page
-    Route::get('/dashboard-admin', function () {
-        return view('dashboard.admin');
+    //Dashboard Page
+    Route::get('/dashboard', function () {
+        return view('dashboard.index');
     });
 
     Route::get('/user-profile/{user}/edit', [UserProfileController::class, 'edit'])->name('userprofile.edit');
