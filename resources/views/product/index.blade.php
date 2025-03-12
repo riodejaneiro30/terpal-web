@@ -27,6 +27,9 @@
                         Nama Produk
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
+                        Kategori
+                    </th>
+                    <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Harga Jual
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
@@ -59,6 +62,9 @@
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
                             {{ $product->product_name }}
+                        </td>
+                        <td class="px-5 py-5 text-center bg-white text-sm">
+                            {{ $product->category->product_category_name }}
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
                             Rp {{ number_format($product->price, 2, ',', '.') }}
