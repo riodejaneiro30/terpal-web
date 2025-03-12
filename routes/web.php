@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\Menu\MenuRoleController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\ProductCategoryController;
 use App\Http\Controllers\Product\StockController;
@@ -55,9 +56,7 @@ Route::middleware([AuthMiddleware::class])->group(function () {
     Route::delete('/menu-role/{role_id}/{menu_id}', [MenuRoleController::class, 'destroy'])->name('menurole.destroy');
 
     //Dashboard Page
-    Route::get('/dashboard', function () {
-        return view('dashboard.index');
-    });
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     Route::get('/user-profile/{user}/edit', [UserProfileController::class, 'edit'])->name('userprofile.edit');
     Route::put('/user-profile/{user}', [UserProfileController::class, 'update'])->name('userprofile.update');
