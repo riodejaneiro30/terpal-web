@@ -6,7 +6,7 @@
         <div class="flex-1 py-8 px-4">
         </div>
         <div class="flex-1 py-8 px-8">
-        <h1 class="text-2xl font-bold mb-4">Buat General Parameter</h1>
+        <h1 class="text-2xl font-bold mb-4">Tambah General Parameter</h1>
         <form action="{{ route('generalparameter.store') }}" method="POST" class="bg-white shadow-md rounded-lg p-6">
                 @csrf
                 <div class="mb-4">

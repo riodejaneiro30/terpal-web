@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="min-h-screen mx-auto px-24 py-8">
-    <h1 class="text-2xl font-bold mb-4">Product Category</h1>
+    <h1 class="text-2xl font-bold mb-4">Kategori Produk</h1>
     <div class="mb-4">
         <a href="{{ route('productcategory.create') }}" class="w-16 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
-            Add Category
+            Tambah Kategori Produk
         </a>
     </div>
 
@@ -21,7 +21,7 @@
                         #
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
-                        Product Category Name
+                        Nama Kategori Produk
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Actions

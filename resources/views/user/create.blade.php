@@ -6,7 +6,7 @@
         <div class="flex-1 py-8 px-8">
         </div>
         <div class="flex-1 py-8 px-8">
-        <h1 class="text-2xl font-bold mb-4">Buat Pengguna</h1>
+        <h1 class="text-2xl font-bold mb-4">Tambah Pengguna</h1>
             <form action="{{ route('user.store') }}" method="POST" class="bg-white shadow-md rounded-lg p-6">
                 @csrf
                 <div class="mb-4">
@@ -33,7 +33,7 @@
                     </select>
                 </div>
                 <div class="flex justify-end">
-                    <button type="submit" class="w-32 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">Create</button>
+                    <button type="submit" class="w-32 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">Tambah</button>
                 </div>
             </form>
         </div>

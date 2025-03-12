@@ -15,7 +15,7 @@
         </div>
         <div class="flex items-center justify-between">
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Add Menu
+                Tambah Menu
             </button>
         </div>
     </form>
@@ -30,13 +30,13 @@
                         #
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
-                        Menu Name
+                        Nama Menu
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
-                        Menu Description
+                        Deskripsi Menu
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
-                        Action
+                        Actions
                     </th>
                 </tr>
             </thead>

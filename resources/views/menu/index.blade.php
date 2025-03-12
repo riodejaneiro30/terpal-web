@@ -5,7 +5,7 @@
     <h1 class="text-2xl font-bold mb-4">Menu</h1>
     <div class="mb-4">
         <a href="{{ route('menu.create') }}" class="w-16 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
-            Add Menu
+            Tambah Menu
         </a>
     </div>
 
@@ -21,10 +21,10 @@
                         #
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
-                        Menu Name
+                        Nama Menu
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
-                        Description
+                        Deskripsi Menu
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Actions

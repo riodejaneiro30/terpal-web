@@ -5,7 +5,7 @@
     <h1 class="text-2xl font-bold mb-4">Role</h1>
     <div class="mb-4">
         <a href="{{ route('role.create') }}" class="w-16 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
-            Add Role
+            Tambah Role
         </a>
     </div>
 
@@ -21,10 +21,10 @@
                         #
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
-                        Role Name
+                        Nama Role
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
-                        Description
+                        Deskripsi Role
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Actions

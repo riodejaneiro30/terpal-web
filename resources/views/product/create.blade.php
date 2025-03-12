@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="min-h-screen mx-auto px-24 py-8">
-    <h1 class="text-2xl font-bold mb-4">Buat Produk</h1>
+    <h1 class="text-2xl font-bold mb-4">Tambah Produk</h1>
 
     @if(session('success'))
         <div class="mb-4">{{ session('success') }}</div>

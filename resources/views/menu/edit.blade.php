@@ -11,11 +11,11 @@
                 @csrf
                 @method('PUT')
                 <div class="mb-4">
-                    <label for="menu_name" class="block text-sm font-medium text-gray-700">Menu Name</label>
+                    <label for="menu_name" class="block text-sm font-medium text-gray-700">Nama Menu</label>
                     <input type="text" name="menu_name" id="menu_name" value="{{ $menu->menu_name }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div class="mb-4">
-                    <label for="menu_description" class="block text-sm font-medium text-gray-700">Menu Description</label>
+                    <label for="menu_description" class="block text-sm font-medium text-gray-700">Deskripsi Menu</label>
                     <input type="text" name="menu_description" id="menu_description" value="{{ $menu->menu_description }}" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
                 </div>
                 <div class="flex justify-end">

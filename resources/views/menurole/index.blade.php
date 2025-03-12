@@ -12,13 +12,13 @@
                         #
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
-                        Role Name
+                        Nama Role
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
-                        Role Description
+                        Deskripsi Role
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
-                        Action
+                        Actions
                     </th>
                 </tr>
             </thead>
