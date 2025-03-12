@@ -15,8 +15,8 @@
         <h1 class="text-2xl font-bold mb-4">Produk yang Tersedia</h1>
     </div>
 
-    <div class="flex flex-wrap mx-auto px-16">
-        <div class="grid grid-cols-2 gap-4">
+    <div class="flex items-center justify-center mx-auto px-16">
+        <div class="grid grid-cols-4 xs:grid-cols-1 sm:grid-cols-3 gap-4">
             @foreach ($products as $product)
                 <div class="bg-white rounded-lg shadow-md p-4">
                 @if ($product->product_image)
