@@ -27,7 +27,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="role_id" class="block text-sm font-medium text-gray-700">{{ __('Role') }}</label>
-                    <select name="role_id" id="role_id" class="shadow appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <select name="role_id" id="role_id" class="shadow border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         @foreach($roles as $role)
                         <option value="{{ $role->role_id }}" {{ $user->profile->role_id == $role->role_id ? 'selected' : '' }}>
                             {{ $role->role_name }}

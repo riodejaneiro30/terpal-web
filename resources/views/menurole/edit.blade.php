@@ -7,7 +7,7 @@
         @csrf
         <div class="mb-4">
             <label for="menu_id" class="block text-gray-700 text-sm font-bold mb-2">Menu</label>
-            <select name="menu_id" id="menu_id" class="shadow appearance-none border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <select name="menu_id" id="menu_id" class="shadow border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @foreach($menus as $menu)
                     <option value="{{ $menu->menu_id }}">{{ $menu->menu_name }}</option>
                 @endforeach
