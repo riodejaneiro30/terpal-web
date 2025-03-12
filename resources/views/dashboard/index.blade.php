@@ -3,13 +3,19 @@
 @section('content')
 <div class="min-h-screen mx-auto px-24 py-8">
     <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
-    <div class="flex w-full px-16">
-        <div style="width: 20%;">
+    <div class="w-full">
+        
+        <div class="grid grid-cols-4 gap-4">
+            <div class="flex flex-col justify-center items-center rounded-xl p-6 bg-[#80C0CE] shadow-md">
+                <p class="text-xl font-semibold text-white mb-2">Produk yang tersedia</p>
+                <p class="text-4xl font-bold text-white">{{ $totalProducts }}</p>
+            </div>
+        </div>
+        <div class="mt-8" style="width: 40%;">
             <canvas id="productGroupByCategoryChart"></canvas>
         </div>
     </div>
 </div>
-
 <script>
     const ctx = document.getElementById('productGroupByCategoryChart').getContext('2d');
     const productGroupByCategoryChart = new Chart(ctx, {
