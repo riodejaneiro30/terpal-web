@@ -58,6 +58,26 @@
 /* for tablet */
 @media (min-width: 640px) {
     .sm\:grid-cols-3 {
-        grid-template-columns: repeat(3,minmax(0,1fr))
+        grid-template-columns: repeat(3,minmax(0,1fr));
     }
+    .sm\:grid-cols-2 {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+
+    .sm\:flex-row {
+        flex-direction: row;
+    }
+
+    .sm\:pr-24 {
+        padding-right: 6rem;
+    }
+}
+
+.card:hover img {
+    transform: scale(1.8);
+    transition: transform 0.3s ease;
+}
+
+.card img {
+    transition: transform 0.3s ease;
 }

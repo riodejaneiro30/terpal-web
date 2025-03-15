@@ -18,6 +18,12 @@ class ProductController extends Controller
         return view('product.index', compact('products'));
     }
 
+
+    public function detail(Product $product)
+    {
+        return view('product.detail', compact('product'));
+    }
+
     public function create()
     {
         $categories = ProductCategory::all();

@@ -205,7 +205,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#80C0CE] text-white p-6 mt-8">
+    <footer class="bg-[#80C0CE] text-white p-6">
         <div class="container mx-auto">
             <div class="mb-4">
                 <h3 class="text-lg text-center mb-2">Hubungi kami</h3>

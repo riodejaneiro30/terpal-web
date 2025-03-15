@@ -23,7 +23,12 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/dashboard')->with('success', 'Sukses login');
+            if (Auth::user()->profile && Auth::user()->profile->role && Auth::user()->profile->role->role_name === 'Buyer') {
+                return redirect('/catalog')->with('success', 'Sukses login');
+            }
+            else {
+                return redirect('/dashboard')->with('success', 'Sukses login');
+            }
         }
 
         return back()->withErrors([

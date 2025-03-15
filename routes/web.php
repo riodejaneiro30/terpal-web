@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Catalog\CatalogController;
 use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\Menu\MenuRoleController;
 use App\Http\Controllers\LandingController;
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 //Landing Page
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 
+Route::get('/product/{product}/detail', [ProductController::class, 'detail'])->name('product.detail');
+
 // Registration Routes
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
@@ -29,6 +32,8 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware([AuthMiddleware::class])->group(function () {
+    Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
+
     Route::get('/product-category', [ProductCategoryController::class, 'index'])->name('productcategory.index'); // Fetch product categories
     Route::get('/product-category/create', [ProductCategoryController::class, 'create'])->name('productcategory.create'); // Show create form
     Route::post('/product-category', [ProductCategoryController::class, 'store'])->name('productcategory.store'); // Store new product category
