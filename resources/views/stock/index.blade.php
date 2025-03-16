@@ -96,13 +96,13 @@
                             {{ $product->product_color }}
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
-                            Rp {{ number_format($product->price, 2, ',', '.') }}
+                            Rp {{ number_format($product->price, 0, ',', '.') }}
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
                             {{ $product->stock_available }}
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
-                            Rp {{ number_format($product->net_price, 2, ',', '.') }}
+                            Rp {{ number_format($product->net_price, 0, ',', '.') }}
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
                             <button onclick="openEditModal('{{ $product->product_id }}', '{{ $product->stock_available }}')"

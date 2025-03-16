@@ -77,14 +77,14 @@
                             {{ $product->product_color }}
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
-                            Rp {{ number_format($product->price, 2, ',', '.') }}
+                            Rp {{ number_format($product->price, 0, ',', '.') }}
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
                             {{ $product->stock_available }}
                         </td>
                         @if(Auth::user()->profile && Auth::user()->profile->role && Auth::user()->profile->role->role_name === 'Owner')
                         <td class="px-5 py-5 text-center bg-white text-sm">
-                            Rp {{ number_format($product->net_price, 2, ',', '.') }}
+                            Rp {{ number_format($product->net_price, 0, ',', '.') }}
                         </td>
                         @endif
                         <td class="px-5 py-5 text-center bg-white text-sm">

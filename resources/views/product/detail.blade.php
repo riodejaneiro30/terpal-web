@@ -19,7 +19,7 @@
             </div>
             <div class="p-4">
                 <h1 class="text-2xl font-bold mb-4">{{ $product->product_name }}</h1>
-                <h3 class="text-2xl font-bold mb-4">Rp {{ number_format($product->price, 2, ',', '.') }}</h3>
+                <h3 class="text-2xl font-bold mb-4">Rp {{ number_format($product->price, 0, ',', '.') }}</h3>
                 <h3 class="font-semibold mb-4">Deskripsi</h3>
                 <p class="text-gray-700 mb-4">{{ $product->product_description ? $product->product_description : '-' }}</p>
                 <h3 class="font-semibold mb-4">Kategori</h3>

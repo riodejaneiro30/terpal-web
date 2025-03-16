@@ -31,7 +31,7 @@
                     @endif
                         <h2 class="text-xl font-semibold">{{ $product->product_name }}</h2>
                         <p class="py-2 text-gray-600">Ukuran : {{ rtrim(rtrim(number_format($product->length, 2, '.', ''), '0'), '.') }} meter X {{ rtrim(rtrim(number_format($product->width, 2, '.', ''), '0'), '.') }} meter</p>
-                        <p class="text-gray-600">Rp {{ number_format($product->price, 2, ',', '.') }}</p>
+                        <p class="text-gray-600">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                     </div>
                 </a>
             @endforeach
