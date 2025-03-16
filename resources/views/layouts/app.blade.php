@@ -92,6 +92,11 @@
                     </div>
                     @endif
 
+                    <div class="relative">
+                        <a href=""><img src="{{ asset('images/bell-white.png') }}" alt="User" class="w-4 h-4 inline ml-1"></a>
+                        <a href=""><img src="{{ asset('images/grocery-store-white.png') }}" alt="Cart" class="w-4 h-4 inline ml-1"></a>
+                    </div>
+
                     <!-- User Dropdown -->
                     <div x-data="{ isUserDropdownOpen: false }" class="relative">
                         <button @click="isUserDropdownOpen = !isUserDropdownOpen" class="text-white hover:text-gray-200 focus:outline-none">
@@ -173,6 +178,11 @@
                     </div>
                 </div>
                 @endif
+
+                <div class="relative">
+                    <a href=""><img src="{{ asset('images/bell-white.png') }}" alt="User" class="w-4 h-4"></a>
+                    <a href=""><img src="{{ asset('images/grocery-store-white.png') }}" alt="Cart" class="w-4 h-4"></a>
+                </div>
 
                 <!-- User Dropdown for Mobile -->
                 <div x-data="{ isMobileUserDropdownOpen: false }" class="relative">

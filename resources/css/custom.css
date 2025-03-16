@@ -57,6 +57,9 @@
 
 /* for tablet */
 @media (min-width: 640px) {
+    .sm\:grid-cols-4 {
+        grid-template-columns: repeat(4,minmax(0,1fr))
+    }
     .sm\:grid-cols-3 {
         grid-template-columns: repeat(3,minmax(0,1fr));
     }
@@ -70,6 +73,13 @@
 
     .sm\:pr-24 {
         padding-right: 6rem;
+    }
+
+    .sm\:w-1-5 {
+        width: 20%;
+    }
+    .sm\:w-4-5 {
+        width: 80%;
     }
 }
 
