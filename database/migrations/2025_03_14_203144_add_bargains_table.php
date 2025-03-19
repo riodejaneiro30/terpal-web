@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('bargains', function (Blueprint $table) {
             $table->uuid('bargain_id')->primary();
-            $table->foreignId('user_id')->unique()->constrained('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('product_id');
             $table->foreign('product_id')->references('product_id')->on('products')->onDelete('cascade');
             $table->integer('offer_quantity');

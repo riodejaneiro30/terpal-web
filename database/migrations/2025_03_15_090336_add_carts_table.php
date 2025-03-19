@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->uuid('cart_id')->primary();
-            $table->foreignId('user_id')->unique()->constrained('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('created_by');
             $table->timestamp('created_date')->useCurrent();
             $table->string('last_updated_by')->nullable();
