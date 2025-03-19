@@ -54,6 +54,7 @@
             <h1 class="text-2xl font-bold mb-4">Katalog Produk</h1>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 @foreach ($products as $product)
+                <a href="{{ route('product.detail', $product->product_id) }}">
                     <div class="bg-white rounded-lg shadow-md p-4 w-full h-80 flex flex-col justify-between">
                         <!-- Gambar Produk -->
                         <div class="flex justify-center">
@@ -78,6 +79,7 @@
                             <p class="text-gray-600">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                         </div>
                     </div>
+                </a>
                 @endforeach
             </div>
         </div>

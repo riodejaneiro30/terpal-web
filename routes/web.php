@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Bargain\BargainController;
 use App\Http\Controllers\Catalog\CatalogController;
 use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\Menu\MenuRoleController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Order\CartController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\ProductCategoryController;
 use App\Http\Controllers\Product\StockController;
@@ -82,6 +84,13 @@ Route::middleware([AuthMiddleware::class])->group(function () {
 
     Route::get('/stock', [StockController::class, 'index'])->name('stock.index');
     Route::put('/stock/{productId}', [StockController::class, 'update'])->name('stock.update');
+
+    Route::get('/bargain', [BargainController::class, 'index'])->name('bargain.index');
+    Route::post('/bargain/{productId}/create', [BargainController::class, 'create'])->name('bargain.create');
+
+    Route::post('/cart/{productId}/create', [CartController::class, 'create'])->name('cart.create');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::put('/cart/{cartItem}', [CartController::class, 'update'])->name('cart.update');
 
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
     Route::get('/user/create', [UserController::class, 'create'])->name('user.create');

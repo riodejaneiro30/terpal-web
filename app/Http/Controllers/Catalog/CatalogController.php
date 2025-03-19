@@ -17,7 +17,8 @@ class CatalogController extends Controller
         $products = Product::query();
 
         if ($request->has('search') && $request->search != '') {
-            $products->where('product_name', 'like', '%' . $request->search . '%');
+            $searchTerm = strtolower($request->search);
+            $products->whereRaw('LOWER(product_name) LIKE ?', ['%' . $searchTerm . '%']);
         }
 
         if ($request->has('categories') && !empty($request->categories)) {

@@ -23,7 +23,11 @@
                 <!-- Logo Text -->
                 <img src="{{ asset('images/carpet.png') }}" alt="Carpet" class="w-8 h-8 mr-2">
                 @auth
+                @if(Auth::user()->profile->role->role_name == 'Buyer')
+                <a href="{{ route('catalog.index') }}" class="text-white text-xl">Terpal</a>
+                @else
                 <a href="{{ route('dashboard.index') }}" class="text-white text-xl">Terpal</a>
+                @endif
                 @else
                 <a href="/" class="text-white text-xl">Terpal</a>
                 @endauth
@@ -39,6 +43,21 @@
             <!-- Desktop Menu -->
             <div class="hidden lg:flex space-x-4">
                 @auth
+                    @if(Auth::user()->profile->role->menus->contains('menu_name', 'REPORT'))
+                    <div x-data="{ isOpen: false }" class="relative">
+                        <button @click="isOpen = !isOpen" class="text-white hover:text-gray-200 focus:outline-none">
+                            Laporan
+                            <svg class="w-4 h-4 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <div x-show="isOpen" @click.away="isOpen = false" class="absolute mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
+                            <a href="{{ route('bargain.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Tawar Menawar</a>
+                        </div>
+                    </div>
+                    @endif
+
                     <!-- Parameter Dropdown -->
                     @if(Auth::user()->profile->role->menus->contains('menu_name', 'PARAMETER_MANAGEMENT'))
                     <div x-data="{ isOpen: false }" class="relative">
@@ -94,7 +113,7 @@
 
                     <div class="relative">
                         <a href=""><img src="{{ asset('images/bell-white.png') }}" alt="User" class="w-4 h-4 inline ml-1"></a>
-                        <a href=""><img src="{{ asset('images/grocery-store-white.png') }}" alt="Cart" class="w-4 h-4 inline ml-1"></a>
+                        <a href="{{ route('cart.index') }}"><img src="{{ asset('images/grocery-store-white.png') }}" alt="Cart" class="w-4 h-4 inline ml-1"></a>
                     </div>
 
                     <!-- User Dropdown -->
