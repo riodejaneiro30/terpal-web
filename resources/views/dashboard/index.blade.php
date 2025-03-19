@@ -5,7 +5,7 @@
     <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
     <div class="w-full">
         
-        <div class="grid grid-cols-4 gap-4">
+        <div class="grid xs:grid-cols-1 sm:grid-cols-4 gap-4">
             <div class="flex flex-col justify-center items-center rounded-xl p-6 bg-[#80C0CE] shadow-md">
                 <p class="text-xl font-semibold text-white mb-2">Produk yang tersedia</p>
                 <p class="text-4xl font-bold text-white">{{ $totalProducts }}</p>
@@ -16,19 +16,64 @@
             </div>
             <div class="flex flex-col justify-center items-center rounded-xl p-6 bg-[#80C0CE] shadow-md">
                 <p class="text-xl font-semibold text-white mb-2">Jumlah Pengguna</p>
-                <p class="text-4xl font-bold text-white">6</p>
+                <p class="text-4xl font-bold text-white">{{ $userCount }}</p>
             </div>
             <div class="flex flex-col justify-center items-center rounded-xl p-6 bg-[#80C0CE] shadow-md">
                 <p class="text-xl font-semibold text-white mb-2">Banyak Produk yang Terjual</p>
                 <p class="text-4xl font-bold text-white">10</p>
             </div>
         </div>
-        <div class="mt-8" style="width: 40%;">
-            <canvas id="productGroupByCategoryChart"></canvas>
+
+        <div class="grid xs:grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="mt-8" style="height: 400px">
+                <canvas id="productGroupByCategoryChart"></canvas>
+            </div>
+            <div class="mt-8" style="height: 400px">
+                <canvas id="salesChart"></canvas>
+            </div>
         </div>
     </div>
 </div>
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        const salesData = @json($salesData);
+
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: salesData.labels,
+                datasets: [{
+                    label: 'Angka Penjualan Kumulatif',
+                    data: salesData.data,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: true,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Total Penjualan (Rp)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Tanggal'
+                        }
+                    }
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+            }
+        });
+    });
+
     const ctx = document.getElementById('productGroupByCategoryChart').getContext('2d');
     const productGroupByCategoryChart = new Chart(ctx, {
         type: 'pie',
