@@ -25,6 +25,21 @@
                         </div>
                     </div>
                     <div class="mb-4">
+                        <span class="block text-sm font-medium text-gray-700 mb-2">Tipe</span>
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <input type="checkbox" name="types[]" id="type_custom" value="Custom"
+                                    class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <label for="type_custom" class="ml-2 text-sm text-gray-700">Custom</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" name="types[]" id="type_non_custom" value="Non-Custom"
+                                    class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                <label for="type_non_custom" class="ml-2 text-sm text-gray-700">Non-Custom</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
                         <label for="product_color" class="block text-sm font-medium text-gray-700 mb-2">Warna</label>
                         <input type="text" name="product_color" id="product_color" placeholder="Masukkan warna produk"
                                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
@@ -55,7 +70,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 @foreach ($products as $product)
                 <a href="{{ route('product.detail', $product->product_id) }}">
-                    <div class="bg-white rounded-lg shadow-md p-4 w-full h-80 flex flex-col justify-between">
+                    <div class="bg-white rounded-lg shadow-md p-4 w-full h-96 flex flex-col justify-between">
                         <!-- Gambar Produk -->
                         <div class="flex justify-center">
                             @if ($product->product_image)
@@ -72,10 +87,10 @@
                         <!-- Detail Produk -->
                         <div>
                             <h2 class="text-xl font-semibold">{{ $product->product_name }}</h2>
-                            <p class="py-2 text-gray-600">
-                                Ukuran : {{ rtrim(rtrim(number_format($product->length, 2, '.', ''), '0'), '.') }} meter X
-                                {{ rtrim(rtrim(number_format($product->width, 2, '.', ''), '0'), '.') }} meter
-                            </p>
+                            <p class="py-2 text-gray-600">Tipe : {{ $product->type }}</p>
+                            @if($product->type == 'Non-Custom')
+                            <p class="text-gray-600">Ukuran : {{ rtrim(rtrim(number_format($product->length, 2, '.', ''), '0'), '.') }} meter X {{ rtrim(rtrim(number_format($product->width, 2, '.', ''), '0'), '.') }} meter</p>
+                            @endif
                             <p class="text-gray-600">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="min-h-screen mx-auto px-24 py-8">
+<div class="min-h-screen mx-auto px-16 py-8">
     <h1 class="text-2xl font-bold mb-4">Daftar Produk</h1>
     <div class="mb-4">
         @if(Auth::user()->profile && Auth::user()->profile->role && Auth::user()->profile->role->role_name === 'Owner')
@@ -14,7 +14,7 @@
     @if(session('success'))
         <div class="mb-4">{{ session('success') }}</div>
     @endif
-
+    <span class="block text-sm font-medium text-gray-700 mb-2">Harga per meter<sup>2</sup> berlaku untuk terpal tipe Custom </span>
     <div class="bg-white shadow-md rounded-lg overflow-hidden">
         <table class="min-w-full leading-normal">
             <thead>
@@ -30,6 +30,9 @@
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Kategori
+                    </th>
+                    <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
+                        Tipe
                     </th>
                     <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Warna
@@ -72,6 +75,9 @@
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
                             {{ $product->category->product_category_name }}
+                        </td>
+                        <td class="px-5 py-5 text-center bg-white text-sm">
+                            {{ $product->type }}
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
                             {{ $product->product_color }}

@@ -38,12 +38,23 @@
             </select>
         </div>
         <div class="mb-4">
+            <label for="type" class="block text-gray-700 text-sm font-bold mb-2">Tipe Produk</label>
+            <select name="type" id="type" class="shadow border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <option value="Custom" {{ $product->type == 'Custom' ? 'selected' : '' }}}>Custom</option>
+                <option value="Non-Custom" {{ $product->type == 'Non-Custom' ? 'selected' : '' }}>Non-Custom</option>
+            </select>
+        </div>
+        <div class="mb-4">
             <label for="length" class="block text-gray-700 text-sm font-bold mb-2">Panjang (dalam meter)</label>
-            <input type="number" name="length" id="length" value="{{ $product->length }}" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+            <input type="number" name="length" id="length" value="{{ $product->length }}" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
         </div>
         <div class="mb-4">
             <label for="width" class="block text-gray-700 text-sm font-bold mb-2">Lebar (dalam meter)</label>
-            <input type="number" name="width" id="width" value="{{ $product->width }}" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+            <input type="number" name="width" id="width" value="{{ $product->width }}" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+        <div class="mb-4">
+            <label for="height" class="block text-gray-700 text-sm font-bold mb-2">Tinggi (dalam meter)</label>
+            <input type="number" name="height" id="height" value="{{ $product->height }}" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
         </div>
         <div class="mb-4">
             <label for="product_color" class="block text-gray-700 text-sm font-bold mb-2">Warna</label>
@@ -75,6 +86,7 @@
         @endif
         <div class="mb-4">
             <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Harga (dalam Rupiah)</label>
+            <span class="block text-sm font-medium text-gray-700 mb-2">Harga per meter<sup>2</sup> berlaku untuk terpal tipe Custom </span>
             <input type="number" name="price" id="price" value="{{ $product->price }}" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
         </div>
         @if(Auth::user()->profile && Auth::user()->profile->role && Auth::user()->profile->role->role_name === 'Owner')
@@ -107,4 +119,27 @@
         </div>
     </form>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const typeSelect = document.getElementById('type');
+        const lengthInput = document.getElementById('length');
+        const widthInput = document.getElementById('width');
+        const heightInput = document.getElementById('height');
+
+        function toggleDimensions() {
+            if (typeSelect.value === 'Custom') {
+                lengthInput.disabled = true;
+                widthInput.disabled = true;
+                heightInput.disabled = true;
+            } else {
+                lengthInput.disabled = false;
+                widthInput.disabled = false;
+                heightInput.disabled = false;
+            }
+        }
+
+        toggleDimensions();
+        typeSelect.addEventListener('change', toggleDimensions);
+    });
+</script>
 @endsection

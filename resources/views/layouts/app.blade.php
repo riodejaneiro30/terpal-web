@@ -112,8 +112,11 @@
                     @endif
 
                     <div class="relative">
-                        <a href=""><img src="{{ asset('images/bell-white.png') }}" alt="User" class="w-4 h-4 inline ml-1"></a>
+                        @auth
+                        @if(Auth::user()->profile->role->role_name != 'Owner')
                         <a href="{{ route('cart.index') }}"><img src="{{ asset('images/grocery-store-white.png') }}" alt="Cart" class="w-4 h-4 inline ml-1"></a>
+                        @endif
+                        @endauth
                     </div>
 
                     <!-- User Dropdown -->
@@ -199,7 +202,6 @@
                 @endif
 
                 <div class="relative">
-                    <a href=""><img src="{{ asset('images/bell-white.png') }}" alt="User" class="w-4 h-4"></a>
                     <a href=""><img src="{{ asset('images/grocery-store-white.png') }}" alt="Cart" class="w-4 h-4"></a>
                 </div>
 

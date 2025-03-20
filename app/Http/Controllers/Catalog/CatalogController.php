@@ -25,8 +25,12 @@ class CatalogController extends Controller
             $products->whereIn('product_category_id', $request->categories);
         }
 
+        if ($request->has('types') && !empty($request->types)) {
+            $products->whereIn('type', $request->types);
+        }
+
         if ($request->has('product_color') && $request->product_color != '') {
-            $products->where('product_color', 'like', '%' . $request->product_color . '%');
+            $products->whereRaw('LOWER(product_color) LIKE ?', ['%' . $request->product_color . '%']);
         }
 
         if ($request->has('min_price') && $request->min_price != '') {

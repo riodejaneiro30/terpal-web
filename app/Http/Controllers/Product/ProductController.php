@@ -35,8 +35,6 @@ class ProductController extends Controller
         $request->validate([
             'product_name' => 'required|string|max:255',
             'product_category_id' => 'required|exists:product_categories,product_category_id',
-            'width' => 'required|numeric',
-            'length' => 'required|numeric',
             'product_color' => 'required|string|max:255',
             'stock_available' => 'required|integer',
             'price' => 'required|numeric',
@@ -52,8 +50,7 @@ class ProductController extends Controller
             $data['product_image'] = $imageData;
         }
 
-        //$data['created_by'] = auth()->user()->name; // Set the created_by field
-        $data['product_id'] = (string) Str::uuid(); // Generate UUID
+        $data['product_id'] = (string) Str::uuid();
         $data['created_by'] = 'admin';
         $data['created_date'] = now();
         Product::create($data);
@@ -73,8 +70,6 @@ class ProductController extends Controller
             $request->validate([
                 'product_name' => 'required|string|max:255',
                 'product_category_id' => 'required|exists:product_categories,product_category_id',
-                'width' => 'required|numeric',
-                'length' => 'required|numeric',
                 'product_color' => 'required|string|max:255',
                 'stock_available' => 'required|integer',
                 'price' => 'required|numeric',
