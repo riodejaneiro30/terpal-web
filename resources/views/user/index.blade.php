@@ -17,22 +17,22 @@
         <table class="min-w-full leading-normal">
             <thead>
                 <tr>
-                    <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
+                    <th class="px-5 py-3 bg-[#42A3A7] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         #
                     </th>
-                    <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
+                    <th class="px-5 py-3 bg-[#42A3A7] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Nama
                     </th>
-                    <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
+                    <th class="px-5 py-3 bg-[#42A3A7] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Email
                     </th>
-                    <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
+                    <th class="px-5 py-3 bg-[#42A3A7] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Nomor Telepon
                     </th>
-                    <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
+                    <th class="px-5 py-3 bg-[#42A3A7] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Role
                     </th>
-                    <th class="px-5 py-3 bg-[#80C0CE] text-center text-xs font-semibold text-white uppercase tracking-wider">
+                    <th class="px-5 py-3 bg-[#42A3A7] text-center text-xs font-semibold text-white uppercase tracking-wider">
                         Actions
                     </th>
                 </tr>

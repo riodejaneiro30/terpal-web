@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <title>@yield('title', 'Terpal')</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>@yield('title', 'PT. Chaste Gemilang Mandiri')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/custom.css'])
     <style>
         body {
@@ -16,20 +16,20 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="bg-[#80C0CE] p-4">
+    <nav class="bg-[#42A3A7] p-4">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
-            <div class="flex items-center">
+            <div class="flex items-center ml-4">
                 <!-- Logo Text -->
-                <img src="{{ asset('images/carpet.png') }}" alt="Carpet" class="w-8 h-8 mr-2">
+                <img src="{{ asset('images/carpet.png') }}" alt="Carpet" class="w-12 h-12 mr-2">
                 @auth
                 @if(Auth::user()->profile->role->role_name == 'Buyer')
-                <a href="{{ route('catalog.index') }}" class="text-white text-xl">Terpal</a>
+                <a href="{{ route('catalog.index') }}" class="text-white text-xl hover:underline">PT. Chaste Gemilang Mandiri</a>
                 @else
-                <a href="{{ route('dashboard.index') }}" class="text-white text-xl">Terpal</a>
+                <a href="{{ route('dashboard.index') }}" class="text-white text-xl hover:underline">PT. Chaste Gemilang Mandiri</a>
                 @endif
                 @else
-                <a href="/" class="text-white text-xl">Terpal</a>
+                <a href="/" class="text-white text-xl hover:underline">PT. Chaste Gemilang Mandiri</a>
                 @endauth
             </div>
 
@@ -41,7 +41,7 @@
             </button>
 
             <!-- Desktop Menu -->
-            <div class="hidden lg:flex space-x-4">
+            <div class="hidden lg:flex space-x-4 mr-4">
                 @auth
                     @if(Auth::user()->profile->role->menus->contains('menu_name', 'REPORT'))
                     <div x-data="{ isOpen: false }" class="relative">
@@ -139,8 +139,8 @@
                     </div>
                 @else
                     <!-- Show Register and Login if not authenticated -->
-                    <a href="{{ route('register') }}" class="text-white hover:text-gray-200">Daftar</a>
-                    <a href="{{ route('login') }}" class="text-white hover:text-gray-200">Login</a>
+                    <a href="{{ route('register') }}" class="text-white hover:text-gray-200 hover:underline">Daftar</a>
+                    <a href="{{ route('login') }}" class="text-white hover:text-gray-200 hover:underline">Login</a>
                 @endauth
             </div>
         </div>
@@ -225,8 +225,8 @@
                 </div>
             @else
                 <!-- Show Register and Login if not authenticated -->
-                <a href="{{ route('register') }}" class="block text-white py-2 hover:bg-[#6DA8B8]">Daftar</a>
-                <a href="{{ route('login') }}" class="block text-white py-2 hover:bg-[#6DA8B8]">Login</a>
+                <a href="{{ route('register') }}" class="block text-white py-2 hover:bg-[#6DA8B8] hover:underline">Daftar</a>
+                <a href="{{ route('login') }}" class="block text-white py-2 hover:bg-[#6DA8B8] hover:underline">Login</a>
             @endauth
         </div>
     </nav>
@@ -236,10 +236,14 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#80C0CE] text-white p-6">
+    <footer class="bg-[#F2D1C9] text-white p-6">
         <div class="container mx-auto">
+            <div class="flex items-center justify-center">
+                <img src="{{ asset('images/company-logo.png') }}" alt="Carpet" class="w-24 h-24 mr-2">
+            </div>
             <div class="mb-4">
-                <h3 class="text-lg text-center mb-2">Hubungi kami</h3>
+                <h3 class="text-lg text-center">Hubungi kami</h3>
+                <h3 class="text-lg text-center mb-2">PT. Chaste Gemilang Mandiri</h3>
                 <ul>
                     <!-- Email -->
                     <li class="text-sm flex items-center justify-center">
@@ -258,7 +262,7 @@
                     </li>
                 </ul>
             </div>
-            <p class="text-center">&copy; Terpal 2025. Hak Cipta Dilindungi</p>
+            <p class="text-center">&copy; PT. Chaste Gemilang Mandiri 2025. Hak Cipta Dilindungi</p>
         </div>
     </footer>
 

@@ -103,7 +103,7 @@
                     <button onclick="openCartModal('{{ $product->product_id }}')" class="bg-blue-500 text-white xs:mt-2 px-6 py-2 rounded-md">
                         Tambah ke Keranjang
                     </button>
-                    <button onclick="openBargainModal('{{ $product->product_id }}')" class="bg-[#80C0CE] text-white xs:mt-2 px-6 py-2 rounded-md">
+                    <button onclick="openBargainModal('{{ $product->product_id }}')" class="bg-[#42A3A7] text-white xs:mt-2 px-6 py-2 rounded-md">
                         Tawar
                     </button>
                     <button class="bg-green-600 text-white xs:mt-2 px-6 py-2 rounded-md">

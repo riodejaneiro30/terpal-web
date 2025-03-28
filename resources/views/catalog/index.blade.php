@@ -58,7 +58,7 @@
                         Terapkan Filter
                     </button>
 
-                    <button type="button" id="resetFilter" class="block w-full bg-[#80C0CE] mt-2 text-white py-2 px-4 rounded-md">
+                    <button type="button" id="resetFilter" class="block w-full bg-[#42A3A7] mt-2 text-white py-2 px-4 rounded-md">
                         Reset Filter
                     </button>
                 </form>

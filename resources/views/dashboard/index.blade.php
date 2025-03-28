@@ -6,19 +6,19 @@
     <div class="w-full">
         
         <div class="grid xs:grid-cols-1 sm:grid-cols-4 gap-4">
-            <div class="flex flex-col justify-center items-center rounded-xl p-6 bg-[#80C0CE] shadow-md">
+            <div class="flex flex-col justify-center items-center rounded-xl p-6 bg-[#42A3A7] shadow-md">
                 <p class="text-xl font-semibold text-white mb-2">Produk yang tersedia</p>
                 <p class="text-4xl font-bold text-white">{{ $totalProducts }}</p>
             </div>
-            <div class="flex flex-col justify-center items-center rounded-xl p-6 bg-[#80C0CE] shadow-md">
+            <div class="flex flex-col justify-center items-center rounded-xl p-6 bg-[#42A3A7] shadow-md">
                 <p class="text-xl font-semibold text-white mb-2">Total Penjualan Hari ini</p>
                 <p class="text-4xl font-bold text-white">Rp 1.000.000</p>
             </div>
-            <div class="flex flex-col justify-center items-center rounded-xl p-6 bg-[#80C0CE] shadow-md">
+            <div class="flex flex-col justify-center items-center rounded-xl p-6 bg-[#42A3A7] shadow-md">
                 <p class="text-xl font-semibold text-white mb-2">Jumlah Pengguna</p>
                 <p class="text-4xl font-bold text-white">{{ $userCount }}</p>
             </div>
-            <div class="flex flex-col justify-center items-center rounded-xl p-6 bg-[#80C0CE] shadow-md">
+            <div class="flex flex-col justify-center items-center rounded-xl p-6 bg-[#42A3A7] shadow-md">
                 <p class="text-xl font-semibold text-white mb-2">Banyak Produk yang Terjual</p>
                 <p class="text-4xl font-bold text-white">10</p>
             </div>
