@@ -11,6 +11,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Order\CartController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\ProductCategoryController;
+use App\Http\Controllers\Product\ProductColorController;
 use App\Http\Controllers\Product\StockController;
 use App\Http\Controllers\Menu\RoleController;
 use App\Http\Controllers\User\UserController;
@@ -84,6 +85,13 @@ Route::middleware([AuthMiddleware::class])->group(function () {
 
     Route::get('/stock', [StockController::class, 'index'])->name('stock.index');
     Route::put('/stock/{productId}', [StockController::class, 'update'])->name('stock.update');
+
+    Route::get('/product-color', [ProductColorController::class, 'index'])->name('productcolor.index');
+    Route::get('/product-color/create', [ProductColorController::class, 'create'])->name('productcolor.create');
+    Route::post('/product-color', [ProductColorController::class, 'store'])->name('productcolor.store');
+    Route::get('/product-color/{color}/edit', [ProductColorController::class, 'edit'])->name('productcolor.edit');
+    Route::put('/product-color/{color}', [ProductColorController::class, 'update'])->name('productcolor.update');
+    Route::delete('/product-color/{color}', [ProductColorController::class, 'destroy'])->name('productcolor.destroy');
 
     Route::get('/bargain', [BargainController::class, 'index'])->name('bargain.index');
     Route::post('/bargain/{productId}/create', [BargainController::class, 'create'])->name('bargain.create');

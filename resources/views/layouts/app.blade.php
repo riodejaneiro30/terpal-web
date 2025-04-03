@@ -107,6 +107,7 @@
                             <a href="{{ route('product.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Produk</a>
                             <a href="{{ route('productcategory.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Kategori Produk</a>
                             <a href="{{ route('stock.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Stok</a>
+                            <a href="{{ route('productcolor.index') }}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Warna Produk</a>
                         </div>
                     </div>
                     @endif
@@ -197,6 +198,7 @@
                         <a href="{{ route('product.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Produk</a>
                         <a href="{{ route('productcategory.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Kategori Produk</a>
                         <a href="{{ route('stock.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Stok</a>
+                        <a href="{{ route('productcolor.index') }}" class="block text-white py-2 hover:bg-[#6DA8B8] px-4">Warna Produk</a>
                     </div>
                 </div>
                 @endif
