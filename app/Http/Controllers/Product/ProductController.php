@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductColor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -27,7 +28,8 @@ class ProductController extends Controller
     public function create()
     {
         $categories = ProductCategory::all();
-        return view('product.create', compact('categories'));
+        $colors = ProductColor::all();
+        return view('product.create', compact('categories', 'colors'));
     }
 
     public function store(Request $request)
@@ -35,7 +37,7 @@ class ProductController extends Controller
         $request->validate([
             'product_name' => 'required|string|max:255',
             'product_category_id' => 'required|exists:product_categories,product_category_id',
-            'product_color' => 'required|string|max:255',
+            'color_id' => 'required|exists:product_colors,product_color_id',
             'stock_available' => 'required|integer',
             'price' => 'required|numeric',
             'product_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate the image
@@ -61,7 +63,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = ProductCategory::all();
-        return view('product.edit', compact('product', 'categories'));
+        $colors = ProductColor::all();
+        return view('product.edit', compact('product', 'categories', 'colors'));
     }
 
     public function update(Request $request, Product $product)
@@ -70,7 +73,7 @@ class ProductController extends Controller
             $request->validate([
                 'product_name' => 'required|string|max:255',
                 'product_category_id' => 'required|exists:product_categories,product_category_id',
-                'product_color' => 'required|string|max:255',
+                'color_id' => 'required|exists:product_colors,product_color_id',
                 'stock_available' => 'required|integer',
                 'price' => 'required|numeric',
                 'product_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate the image
@@ -93,7 +96,7 @@ class ProductController extends Controller
             'product_category_id' => $request->product_category_id ? $request->product_category_id : $product->product_category_id,
             'width' => $request->width ? $request->width : $product->width,
             'length' => $request->length ? $request->length : $product->length,
-            'product_color' => $request->product_color ? $request->product_color : $product->product_color,
+            'color_id' => $request->color_id ? $request->color_id : $product->color_id,
             'stock_available' => $request->stock_available ? $request->stock_available : $product->stock_available,
             'price' => $request->price ? $request->price : $product->price,
             'product_image' => $imageData ? $imageData : $product->product_image,

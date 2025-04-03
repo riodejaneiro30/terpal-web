@@ -57,8 +57,14 @@
             <input type="number" name="height" id="height" value="{{ $product->height }}" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
         </div>
         <div class="mb-4">
-            <label for="product_color" class="block text-gray-700 text-sm font-bold mb-2">Warna</label>
-            <input type="text" name="product_color" id="product_color" value="{{ $product->product_color }}" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+            <label for="color_id" class="block text-gray-700 text-sm font-bold mb-2">Warna</label>
+            <select name="color_id" id="color_id" class="shadow border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                @foreach($colors as $color)
+                    <option value="{{ $color->product_color_id }}" {{ $product->color?->color_id == $color->product_color_id ? 'selected' : '' }}>
+                        {{ $color?->product_color }}
+                    </option>
+                @endforeach
+            </select>
         </div>
         @else
         <div class="mb-4">
@@ -80,8 +86,14 @@
             <input type="number" name="width" id="width" value="{{ $product->width }}" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required disabled>
         </div>
         <div class="mb-4">
-            <label for="product_color" class="block text-gray-700 text-sm font-bold mb-2">Warna</label>
-            <input type="text" name="product_color" id="product_color" value="{{ $product->product_color }}" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required disabled>
+            <label for="color_id" class="block text-gray-700 text-sm font-bold mb-2">Warna</label>
+            <select name="color_id" id="color_id" class="shadow border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required disabled>
+                @foreach($colors as $color)
+                    <option value="{{ $color->product_color_id }}" {{ $product->color?->color_id == $color->product_color_id ? 'selected' : '' }}>
+                        {{ $color?->product_color }}
+                    </option>
+                @endforeach
+            </select>
         </div>
         @endif
         <div class="mb-4">

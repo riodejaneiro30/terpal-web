@@ -46,8 +46,12 @@
             <input type="number" name="height" id="height" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
         </div>
         <div class="mb-4">
-            <label for="product_color" class="block text-gray-700 text-sm font-bold mb-2">Warna</label>
-            <input type="text" name="product_color" id="product_color" class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+            <label for="color_id" class="block text-gray-700 text-sm font-bold mb-2">Warna</label>
+            <select name="color_id" id="color_id" class="shadow border rounded w-96 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                @foreach($colors as $color)
+                    <option value="{{ $color->product_color_id }}">{{ $color->product_color }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-4">
             <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Harga (dalam Rupiah)</label>

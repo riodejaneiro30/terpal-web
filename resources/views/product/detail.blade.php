@@ -94,7 +94,7 @@
                 <h3 class="font-semibold mb-4">Kategori</h3>
                 <p class="text-gray-700 mb-4">{{ $product->category->product_category_name }}</p>
                 <h3 class="font-semibold mb-4">Warna</h3>
-                <p class="text-gray-700 mb-4">{{ $product->product_color }}</p>
+                <p class="text-gray-700 mb-4">{{ $product->color?->product_color }}</p>
                 <h3 class="font-semibold mb-4">Ukuran</h3>
                 <p class="text-gray-700 mb-4">{{ rtrim(rtrim(number_format($product->length, 2, '.', ''), '0'), '.') }} meter X {{ rtrim(rtrim(number_format($product->width, 2, '.', ''), '0'), '.') }} meter</p>
 

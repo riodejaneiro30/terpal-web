@@ -17,8 +17,9 @@ class Product extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'product_id', 'product_name', 'product_category_id', 'type', 'width', 'length', 'height', 'product_color',
-        'stock_available', 'price', 'product_image', 'net_price', 'min_stock', 'product_description', 'created_by', 'created_date', 'last_updated_by', 'last_updated_date'
+        'product_id', 'product_name', 'product_category_id', 'type', 'width', 'length', 'height', 'color_id',
+        'stock_available', 'price', 'product_image', 'net_price', 'min_stock', 'product_description',
+        'created_by', 'created_date', 'last_updated_by', 'last_updated_date'
     ];
 
     protected static function boot()
@@ -32,5 +33,15 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(ProductCategory::class, 'product_category_id', 'product_category_id');
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+
+    public function color()
+    {
+        return $this->belongsTo(ProductColor::class, 'color_id', 'product_color_id');
     }
 }

@@ -9,7 +9,7 @@
             <h1 class="text-4xl font-bold mb-4">PT. Chaste Gemilang Mandiri</h1>
             <p class="text-lg mb-6">Tempat jual beli terpal dengan harga kompetitif</p>
             <button id="shopButton" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
-                Klik disini untuk melihat produk
+                Order Sekarang
             </button>
         </div>
     </div>

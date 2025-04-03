@@ -80,7 +80,7 @@
                             {{ $product->type }}
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
-                            {{ $product->product_color }}
+                            {{ $product->color?->product_color ? $product->color->product_color : '-' }}
                         </td>
                         <td class="px-5 py-5 text-center bg-white text-sm">
                             Rp {{ number_format($product->price, 0, ',', '.') }}
